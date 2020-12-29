@@ -1,0 +1,23 @@
+@media only screen and (max-width: 768px) {
+    .main-block > h2 {
+        font-size: 28px;
+    }
+    .main-block ul {margin-top: 0;}
+    .order-button {margin-top: 0;}
+    .right-red h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .right-red-2 h2 {
+        line-height: 24px;
+    }
+    .under-p {font-size: 18px}
+    .end-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-start {text-align: center}
+    .text-end {text-align: center}
+}
+

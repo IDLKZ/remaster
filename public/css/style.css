@@ -10,10 +10,11 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
 }
-
 .main-block > h2 {
     font-size: 36px;
     font-weight: 700!important;

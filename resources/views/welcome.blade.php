@@ -2,12 +2,16 @@
 @push('styles')
     <style>
         #main1 {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 48%, rgba(255, 255, 255, 0) 55%), url("{{$main['background']}}") center no-repeat ;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 52%, rgba(255, 255, 255, 0) 70%), url("{{$main['background']}}") center no-repeat ;
+        }
+        @media only screen and (max-width: 768px) {
+            #main1 {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 78%, rgba(255, 255, 255, 0) 100%), url("{{$main['background']}}") center no-repeat ;
+            }
         }
     </style>
 @endpush
 @section('content')
-    <div class="d-table w-100">
         <section id="main1">
             <div class="container">
                 <div class="row">
@@ -22,7 +26,6 @@
                 </div>
             </div>
         </section>
-    </div>
 
     <div class="red-block"></div>
 

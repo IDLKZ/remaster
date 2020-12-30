@@ -2,12 +2,11 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: 'Montserrat'!important;
+    font-family: 'Montserrat', sans-serif;
 }
 .mt-100 {margin-top: 100px;}
 
 #main1 {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 48%, rgba(255, 255, 255, 0) 55%), url("../img/main-bg.png") center no-repeat ;
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -150,3 +149,7 @@ footer {
 .text-start {text-align: start}
 .text-end {text-align: end}
 
+#main3 ul {
+    margin-top: 30px;
+    padding: 0;
+}

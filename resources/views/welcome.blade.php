@@ -1,4 +1,11 @@
 @extends('layout')
+@push('styles')
+    <style>
+        #main1 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 48%, rgba(255, 255, 255, 0) 55%), url("{{$main['background']}}") center no-repeat ;
+        }
+    </style>
+@endpush
 @section('content')
     <div class="d-table w-100">
         <section id="main1">
@@ -6,16 +13,8 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-lg-6">
                         <div class="main-block">
-                            <h2 class="text-white">Капитальный ремонт квартир
-                                по индивидуальному
-                                дизайн‑проекту</h2>
-
-                            <ul>
-                                <li>- Фиксированные сроки и стоимость</li>
-                                <li>- Индивидуальный дизайн-проект</li>
-                                <li>- Персональный архитектор</li>
-                            </ul>
-
+                            <h2 class="text-white">{{$main['title']}}</h2>
+                                {!! $main['subtitle'] !!}
                             <button class="btn order-button">Заказать ремонт</button>
                         </div>
                     </div>
@@ -30,10 +29,8 @@
     <section id="main2">
         <div class="container">
             <div class="mt-5">
-                <p class="red-text">Мы предлагаем ремонт и строительство “под ключ”.</p>
-                <p class="text-danger">Мы - профессионалы в сфере отделки с многолетним опытом работы на десятках
-                    строительных объектов по всему миру. Каждый специалист Бюро ремонта
-                    отлично знает своё дело и занимается только им.</p>
+                <p class="red-text">{{$about['title']}}</p>
+                <p class="text-danger">{{$about['subtitle']}}</p>
             </div>
         </div>
 
@@ -41,28 +38,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center border-right">
-                            <div class="digits">15</div>
-                            <p class="text-white">Лет на рынке ремонта <br>
-                                и строительства</p>
+                        <div class="inner-block text-center border-right text-white">
+                            <div class="digits">{{$about['skill']}}</div>
+                            {!! $about['skill_title'] !!}
                         </div>
 
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center border-right">
-                            <div class="digits">90</div>
-                            <p class="text-white">Успешных проектов <br>
-                                выполненных
-                                в нашей компании</p>
+                        <div class="inner-block text-center border-right text-white">
+                            <div class="digits">{{$about['projects']}}</div>
+                            {!! $about['projects_title'] !!}
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center">
-                            <div class="digits">100%</div>
-                            <p class="text-white">
-                                Гарантия качества и сервиса <br>
-                                для каждого клиента
-                            </p>
+                        <div class="inner-block text-center text-white">
+                            <div class="digits">{{$about['warranty']}}</div>
+                                {!! $about['warranty_title'] !!}
                         </div>
                     </div>
                 </div>
@@ -73,80 +64,20 @@
     <section id="main3">
         <div class="container mt-5 position-relative pb-5">
             <div class="row">
+                @foreach($services as $service)
                 <div class="col-md-4 col-lg-4 col-sm-12 mb-3">
                     <div class="card">
-                        <img src="img/home-1.png" class="card-img-top" alt="">
+                        <img src="{{$service['img']}}" class="card-img-top" alt="">
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bolder">Косметический ремонт</h5>
+                            <h5 class="card-title font-weight-bolder">{{$service['title']}}</h5>
                             <div class="gray-block">
-                                <p>от 15 000тг. за кв.м.</p>
+                                <p>{{$service['price']}}</p>
                             </div>
-                            <ul class="mt-3 p-0">
-                                <li>- Заделка трещин и сколов на стенах</li>
-                                <li>- Грунтование стен и потолка</li>
-                                <li>- Покраска потолка</li>
-                                <li>- Поклейка обоев или покраска стен</li>
-                                <li>- Укладка ламината (линолеума)</li>
-                                <li>- Установка новой сантехники</li>
-                                <li>- Замена розеток</li>
-                                <li>- Уборка в подарок</li>
-                            </ul>
+                            {!! $service['description'] !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 mb-3">
-                    <div class="card">
-                        <img src="img/home-2.png" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bolder">Капитальный ремонт</h5>
-                            <div class="gray-block">
-                                <p>от 25 000тг. за кв.м.</p>
-                            </div>
-                            <ul class="mt-3 p-0">
-                                <li>- Технический дизайн проект</li>
-                                <li>- Демонтажные работы</li>
-                                <li>- Выравнивание стен и потолка</li>
-                                <li>- Шпатлевка стен и потолка</li>
-                                <li>- Стяжка пола + наливной пол</li>
-                                <li>- Замена электропроводки</li>
-                                <li>- Замена труб водоснабжения</li>
-                                <li>- Замена радиаторов отопления</li>
-                                <li>- Укладка плитки (герамогранита)</li>
-                                <li>- Поклейка обоев или покраска стен</li>
-                                <li>- Монтаж напольного покрытия</li>
-                                <li>- Уборка в подарок</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 mb-3">
-                    <div class="card">
-                        <img src="img/home-3.png" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title font-weight-bolder">Ремонт премиум класса</h5>
-                            <div class="gray-block">
-                                <p>от 37 000тг. за кв.м.</p>
-                            </div>
-                            <ul class="mt-3 p-0">
-                                <li>- Технический дизайн проекта</li>
-                                <li>- 3D-визуализация дизайна</li>
-                                <li>- Демонтажные работы</li>
-                                <li>- Возведение стен из ГКЛ или кирпича</li>
-                                <li>- Шпатлевка стен</li>
-                                <li>- Многоуровневый потолок</li>
-                                <li>- Стяжка пола + наливной пол</li>
-                                <li>- Замена электропроводки</li>
-                                <li>- Замена труб водоснабжения</li>
-                                <li>- Замена радиаторов отопления</li>
-                                <li>- Укладка плитки, герамогранита, мрамора</li>
-                                <li>- Установка сантехники</li>
-                                <li>- Укладка паркета</li>
-                                <li>- Декоративное покрытие стен</li>
-                                <li>- Уборка квартиры</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="red-left-line"></div>
         </div>
@@ -165,38 +96,19 @@
         <div class="gray-lg-block">
             <div class="container">
                 <div class="row">
+                    @foreach($projects as $project)
                     <div class="col-md-4 col-lg-4 col-sm-12">
                         <div class="card">
-                            <img src="img/house-1.png" class="card-img-top" alt="...">
+                            <img src="{{$project['img']}}" class="card-img-top" alt="{{$project['title']}}">
                             <div class="card-body">
-                                <h5 class="card-title font-weight-bolder text-white">ул. Кенесары, 12</h5>
+                                <h5 class="card-title font-weight-bolder text-white">{{$project['title']}}</h5>
                                 <p class="card-text text-white">
-                                    Стены в спальне покрашены в белый, а в остальных комнатах они серые. Айсулу давно мечтала о граффити в гостиной и специально выбрала такой оттенок в качестве фона.
+                                    {{$project['description']}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <img src="img/house-2.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder text-white">ул. Достык, 16</h5>
-                                <p class="card-text text-white">
-                                    Изначально в этих апартаментах не было внутренних перегородок. Наши архитекторы помогли Денису сделать подходящую ему планировку. В квартире теперь есть большое общее пространство (кухня-гостиная) и приватные зоны (спальня, детская, небольшая гардеробная и ванная).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card">
-                            <img src="img/house-3.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder text-white">ул. Акмешит, 9</h5>
-                                <p class="card-text text-white">
-                                    Хозяйка квартиры Лидия выбрала нейтральную гамму: матовые серые стены, тёмный дубовый паркет Bauwerk. Сложность появляется за счёт контрастных элементов — белых дверей и высокого плинтуса в тон.                            </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -251,14 +163,22 @@
                 </div>
                 <div class="col-mg-4 col-lg-4 col-sm-12">
                     <div class="row justify-content-center">
-                        <img class="mr-3" src="img/telegram.png" alt="">
-                        <img class="mr-3" src="img/instagram.png" alt="">
-                        <img class="mr-3" src="img/facebook.png" alt="">
-                        <img class="mr-3" src="img/youtube.png" alt="">
+                        @isset ($contact->telegram)
+                            <a href="{{$contact->telegram}}"><img class="mr-3" src="img/telegram.png" alt=""></a>
+                        @endisset
+                        @isset($contact->instagram)
+                            <a href="{{$contact->instagram}}"><img class="mr-3" src="img/instagram.png" alt=""></a>
+                        @endisset
+                        @isset($contact->facebook)
+                            <a href="{{$contact->facebook}}"><img class="mr-3" src="img/facebook.png" alt=""></a>
+                        @endisset
+                        @isset($contact->youtube)
+                            <a href="{{$contact->youtube}}"><img class="mr-3" src="img/youtube.png" alt=""></a>
+                        @endisset
                     </div>
                 </div>
                 <div class="col-mg-4 col-lg-4 col-sm-12 text-white text-end">
-                    info@remaster.kz
+                    {{$contact->email}}
                 </div>
             </div>
         </div>

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Document</title>
     @stack('styles')
 </head>
@@ -45,7 +48,7 @@
                     <a class="nav-link" href="#main4">ПРОЕКТЫ</a>
                 </li>
             </ul>
-            <a href="tel:+77477477474" class="text-danger ml-auto font-weight-bolder">+7 747 747 74 74</a>
+            <a href="tel:+77477477474" class="text-danger ml-auto font-weight-bolder">{{$contact->phone}}</a>
         </div>
     </div>
 

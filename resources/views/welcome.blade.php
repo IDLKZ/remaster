@@ -11,14 +11,14 @@
         <section id="main1">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12 col-lg-6">
+                    <div class="col-md-7 col-sm-12 col-lg-7">
                         <div class="main-block">
                             <h2 class="text-white">{{$main['title']}}</h2>
                                 {!! $main['subtitle'] !!}
                             <button class="btn order-button">Заказать ремонт</button>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-lg-6"></div>
+
                 </div>
             </div>
         </section>

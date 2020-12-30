@@ -38,20 +38,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center border-right text-white">
+                        <div class="inner-block text-center text-white">
                             <div class="digits">{{$about['skill']}}</div>
                             {!! $about['skill_title'] !!}
                         </div>
 
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center border-right text-white">
+                        <div class="inner-block text-center text-white">
                             <div class="digits">{{$about['projects']}}</div>
                             {!! $about['projects_title'] !!}
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="inner-block text-center text-white">
+                        <div class="inner-block text-center text-white border-0">
                             <div class="digits">{{$about['warranty']}}</div>
                                 {!! $about['warranty_title'] !!}
                         </div>

@@ -20,5 +20,8 @@
     }
     .text-start {text-align: center}
     .text-end {text-align: center}
+    .inner-block {
+        border: none;
+    }
 }
 

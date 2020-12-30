@@ -2,7 +2,7 @@
 @push('styles')
     <style>
         #main1 {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 48%, rgba(255, 255, 255, 0) 55%), url("{{$main['background']}}") center no-repeat ;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 48%, rgba(255, 255, 255, 0) 55%), url("/{{$main['background']}}") center no-repeat ;
         }
     </style>
 @endpush

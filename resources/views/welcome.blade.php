@@ -131,16 +131,17 @@
     <div class="container contact" id="main5">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-sm-12 mb-2">
-                <form>
+                <form action="/send" method="post">
+                    @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Имя</label>
-                        <input type="text" class="form-control" id="exampleInputName1">
+                        <input type="text" name="name" class="form-control" id="exampleInputName1">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPhone">Телефон</label>
-                        <input type="text" class="form-control" id="exampleInputPhone">
+                        <input type="text" name="phone" class="form-control" id="exampleInputPhone">
                     </div>
-                    <button type="submit" class="btn order-button">Оставить заявку</button>
+                    <button type="submit" class="btn order-button p-0">Оставить заявку</button>
                 </form>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 mb-2"></div>

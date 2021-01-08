@@ -8,6 +8,7 @@ use App\Models\Main;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -68,5 +69,18 @@ class FrontController extends Controller
         $contact = Contact::latest()->first();
 
         return view('welcome', compact('main', 'about', 'services', 'projects', 'contact'));
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $this->validate($request, ['name' => 'required', 'phone' => 'required']);
+        $_SESSION['phone'] = $request->get('phone');
+        $_SESSION['name'] = $request->get('name');
+        Mail::send("mail.mail",["title"=>"Заказ с сайта"],function ($message) use ($request){
+            $message->to("nurbakit_5496@mail.ru","Order");
+            $message->from('support@nomadkilem.kz', "Номер заказчика: {$request->get('phone')}")->subject('Заказ с сайта');
+        });
+        toastr()->success('Ваша заявка успешно отправлена!');
+        return redirect()->back();
     }
 }

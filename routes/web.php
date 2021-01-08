@@ -25,4 +25,4 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('contacts', App\Http\Controllers\ContactController::class);
 });
 
-//Route::post('/send', [\App\Http\Controllers\FrontController::class, ]);
+Route::post('/send', [\App\Http\Controllers\FrontController::class, 'sendEmail']);

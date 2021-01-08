@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "3.0",
         "laravelcollective/html": "^6.2",
-        "qcod/laravel-imageup": "^1.1"
+        "qcod/laravel-imageup": "^1.1",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -33,6 +33,7 @@ body {
     margin-top: 20px;
     width: 267px;
     height: 60px;
+    line-height: 60px;
     background: #FA0E0E;
     box-shadow: 0 8px 12px rgba(299, 9, 9, 0.45)!important;
     color: white;
@@ -160,4 +161,7 @@ footer {
 .inner-block {
     border-right: 3px solid white;
 }
-
+#main4 img {
+    width: 340px!important;
+    height: 240px!important;
+}

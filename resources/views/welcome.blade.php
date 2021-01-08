@@ -19,7 +19,7 @@
                         <div class="main-block">
                             <h2 class="text-white">{{$main['title']}}</h2>
                                 {!! $main['subtitle'] !!}
-                            <a href="#main5" class="btn order-button">Заказать ремонт</a>
+                            <a href="#main5" class="btn order-button p-0">Заказать ремонт</a>
                         </div>
                     </div>
 

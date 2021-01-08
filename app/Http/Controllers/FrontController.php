@@ -77,7 +77,7 @@ class FrontController extends Controller
         $_SESSION['phone'] = $request->get('phone');
         $_SESSION['name'] = $request->get('name');
         Mail::send("mail.mail",["title"=>"Заказ с сайта"],function ($message) use ($request){
-            $message->to("nurbakit_5496@mail.ru","Order");
+            $message->to("Aliyagabbassova@gmail.com","Order");
             $message->from('support@nomadkilem.kz', "Номер заказчика: {$request->get('phone')}")->subject('Заказ с сайта');
         });
         toastr()->success('Ваша заявка успешно отправлена!');

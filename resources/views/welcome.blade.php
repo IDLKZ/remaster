@@ -19,7 +19,7 @@
                         <div class="main-block">
                             <h2 class="text-white">{{$main['title']}}</h2>
                                 {!! $main['subtitle'] !!}
-                            <button class="btn order-button">Заказать ремонт</button>
+                            <a href="#main5" class="btn order-button">Заказать ремонт</a>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
         <p class="under-p">Оставьте свой номер, наш менеджер расспросит об особенностях <br> квартиры, расскажет о материалах и сориентирует по стоимости.</p>
 
     </div>
-    <div class="container contact">
+    <div class="container contact" id="main5">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-sm-12 mb-2">
                 <form>

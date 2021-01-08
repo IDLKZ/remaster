@@ -16,17 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\FrontController::class, 'index']);
 
 Auth::routes(['register' => false]);
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('mains', App\Http\Controllers\MainController::class);
+    Route::resource('abouts', App\Http\Controllers\AboutController::class);
+    Route::resource('services', App\Http\Controllers\ServiceController::class);
+    Route::resource('projects', App\Http\Controllers\ProjectController::class);
+    Route::resource('contacts', App\Http\Controllers\ContactController::class);
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::resource('mains', App\Http\Controllers\MainController::class);
-
-
-Route::resource('abouts', App\Http\Controllers\AboutController::class);
-
-Route::resource('services', App\Http\Controllers\ServiceController::class);
-
-Route::resource('projects', App\Http\Controllers\ProjectController::class);
-
-Route::resource('contacts', App\Http\Controllers\ContactController::class);
+//Route::post('/send', [\App\Http\Controllers\FrontController::class, ]);

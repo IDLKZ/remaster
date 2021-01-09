@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
@@ -15,6 +16,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Remaster</title>
     @stack('styles')
+    <style>
+        .float{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:40px;
+            right:20px;
+            background-color:#0C9;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 20;
+        }
+        .float:hover{
+            background-color:#1d643b;
+        }
+
+        .my-float{
+            font-size: 40px;
+            margin-top:10px;
+        }
+        .float1{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:110px;
+            right:20px;
+            background-color:#dc2a7e;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 20;
+        }
+        .float1:hover{
+            background-color:#624bc5;
+        }
+
+        .my-float1{
+            font-size: 40px;
+            margin-top:10px;
+        }
+        .float2{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:180px;
+            right:20px;
+            background-color:#1b4b72;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 20;
+        }
+        .float2:hover{
+            background-color:#13304a;
+        }
+
+        .my-float2{
+            font-size: 40px;
+            margin-top:10px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -49,14 +115,19 @@
                     <a class="nav-link" href="#main4">ПРОЕКТЫ</a>
                 </li>
             </ul>
-            <a href="tel:+77477477474" class="text-danger ml-auto font-weight-bolder">{{$contact->phone}}</a>
+            <a href="tel:{{trim($contact->phone, '()')}}" class="text-danger ml-auto font-weight-bolder d-none d-md-block d-lg-block d-sm-none">{{$contact->phone}}</a>
         </div>
     </div>
 
 </nav>
 @yield('content')
 
-
+{{--<a href="https://www.instagram.com/nomad.kilem.astana/?igshid=3g22d0cmlnjz" target="_blank" class="float1">--}}
+{{--    <i class="fa fa-instagram my-float1"></i>--}}
+{{--</a>--}}
+<a target="_blank" href="https://api.whatsapp.com/send?phone=77477477474%%D0" class="float">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 @stack('scripts')

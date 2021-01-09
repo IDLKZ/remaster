@@ -125,7 +125,7 @@
 {{--<a href="https://www.instagram.com/nomad.kilem.astana/?igshid=3g22d0cmlnjz" target="_blank" class="float1">--}}
 {{--    <i class="fa fa-instagram my-float1"></i>--}}
 {{--</a>--}}
-<a target="_blank" href="https://api.whatsapp.com/send?phone=77477477474%%D0" class="float">
+<a target="_blank" href="https://api.whatsapp.com/send?phone=77782135555%%D0" class="float">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

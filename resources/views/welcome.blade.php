@@ -138,8 +138,8 @@
                         <input type="text" name="name" class="form-control" id="exampleInputName1">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPhone">Телефон</label>
-                        <input type="text" name="phone" class="form-control" id="exampleInputPhone">
+                        <label for="phone-number">Телефон</label>
+                        <input type="text" name="phone" class="form-control" id="phone-number" placeholder="+7(000)000-00-00">
                     </div>
                     <button type="submit" class="btn order-button p-0">Оставить заявку</button>
                 </form>
@@ -163,7 +163,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-mg-4 col-lg-4 col-sm-12 text-white text-start">
-                    2020 remaster.kz. All rights reserved.
+                    2023 remaster.kz. All rights reserved.
                 </div>
                 <div class="col-mg-4 col-lg-4 col-sm-12">
                     <div class="row justify-content-center">
@@ -189,3 +189,13 @@
     </footer>
 
 @endsection
+
+@push("scripts")
+    <script>
+        const element = document.getElementById('phone-number');
+        const maskOptions = {
+            mask: '+{7}(000)000-00-00'
+        };
+        const mask = IMask(element, maskOptions);
+    </script>
+@endpush

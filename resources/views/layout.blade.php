@@ -111,8 +111,19 @@
                 <li class="nav-item mr-5">
                     <a class="nav-link" href="#main3">УСЛУГИ</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mr-5">
                     <a class="nav-link" href="#main4">ПРОЕКТЫ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Заявка на рассрочку
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Freedom Finance</a>
+                        <a class="dropdown-item" href="#">Bank Center Credit</a>
+                        <a class="dropdown-item" href="#">Kaspi</a>
+                        <a class="dropdown-item" href="#">Jusan</a>
+                    </div>
                 </li>
             </ul>
             <a href="tel:{{trim($contact->phone, '()')}}" class="text-danger ml-auto font-weight-bolder d-none d-md-block d-lg-block d-sm-none">{{$contact->phone}}</a>
@@ -125,11 +136,12 @@
 <a href="https://www.instagram.com/remaster.kz/" target="_blank" class="float1">
     <i class="fa fa-instagram my-float1"></i>
 </a>
-<a target="_blank" href="https://wa.me/77780608078" class="float">
+<a target="_blank" href="https://wa.me/77750608077" class="float">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imask"></script>
 @stack('scripts')
 <script>
 		$('.nav-link').click(function(){

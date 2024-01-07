@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    @livewireStyles
     <title>Remaster</title>
     @stack('styles')
     <style>
@@ -119,10 +122,7 @@
                         Заявка на рассрочку
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Freedom Finance</a>
-                        <a class="dropdown-item" href="#">Bank Center Credit</a>
-                        <a class="dropdown-item" href="#">Kaspi</a>
-                        <a class="dropdown-item" href="#">Jusan</a>
+                        <a class="dropdown-item" href="{{route("freedom-payment")}}">Freedom Finance</a>
                     </div>
                 </li>
             </ul>
@@ -142,6 +142,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/imask"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
+@livewireScripts
 @stack('scripts')
 <script>
 		$('.nav-link').click(function(){

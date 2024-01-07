@@ -13,16 +13,19 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('phone');
-            $table->string('telegram')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('email');
-            $table->timestamps();
-        });
+        if(!Schema::hasTable("contacts")){
+            Schema::create('contacts', function (Blueprint $table) {
+                $table->id();
+                $table->string('phone');
+                $table->string('telegram')->nullable();
+                $table->string('instagram')->nullable();
+                $table->string('facebook')->nullable();
+                $table->string('youtube')->nullable();
+                $table->string('email');
+                $table->timestamps();
+            });
+        }
+
     }
 
     /**

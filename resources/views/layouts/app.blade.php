@@ -41,24 +41,26 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-            <a class="nav-link" style="margin-right: 10px" data-toggle="dropdown" href="#" role="button"
-               aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }}
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a href="{{ url('/logout') }}" class="dropdown-item btn btn-default btn-flat"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="fa fa-lock"></i>Logout
+    @if(\Illuminate\Support\Facades\Auth::check())
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" style="margin-right: 10px" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="true" aria-expanded="false">
+                    {{ Auth::user()->name }}
                 </a>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-        </li>
-    </ul>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ url('/logout') }}" class="dropdown-item btn btn-default btn-flat"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-lock"></i>Logout
+                    </a>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        </ul>
+    @endif
+
 </header>
 
 <div class="app-body">
@@ -70,7 +72,7 @@
 <footer class="app-footer">
     <div>
         <a href="https://infyom.com">Админ Панель </a>
-        <span>&copy; 2020 Remaster.</span>
+        <span>&copy; 2024 Remaster.</span>
     </div>
     <div class="ml-auto">
         <span>Powered by</span>

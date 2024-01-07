@@ -26,3 +26,4 @@ Route::group(['middleware' => 'auth'], function (){
 });
 
 Route::post('/send', [\App\Http\Controllers\FrontController::class, 'sendEmail']);
+Route::get('freedom-payment', [App\Http\Controllers\FreedomController::class,"index"])->name("freedom-payment");

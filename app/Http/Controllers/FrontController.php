@@ -73,14 +73,19 @@ class FrontController extends Controller
 
     public function sendEmail(Request $request)
     {
-        $this->validate($request, ['name' => 'required', 'phone' => 'required']);
-        $_SESSION['phone'] = $request->get('phone');
-        $_SESSION['name'] = $request->get('name');
-        Mail::send("mail.mail",["title"=>"Заказ с сайта"],function ($message) use ($request){
-            $message->to("Aliyagabbassova@gmail.com","Order");
-            $message->from('support@nomadkilem.kz', "Номер заказчика: {$request->get('phone')}")->subject('Заказ с сайта');
-        });
-        toastr()->success('Ваша заявка успешно отправлена!');
-        return redirect()->back();
+        try {
+            $this->validate($request, ['name' => 'required', 'phone' => 'required']);
+            $_SESSION['phone'] = $request->get('phone');
+            $_SESSION['name'] = $request->get('name');
+            Mail::send("mail.mail",["title"=>"Remaster.kz новая заявка от заказчика"],function ($message) use ($request){
+                $message->to("aliyagabbassova@gmail.com","Order");
+                $message->from('sender@remaster.kz', "Заказчик заполнил данные со следующими данными: {$request->get('phone')}")->subject('Заказ с сайта remaster.kz');
+            });
+            return response()->json(true);
+        }
+        catch (\Exception $exception){
+            return response()->json(false);
+        }
+
     }
 }

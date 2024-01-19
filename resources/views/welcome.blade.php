@@ -13,12 +13,59 @@
 @endpush
 @section('content')
         <section id="main1">
-            <div class="container">
+            <div class="container mx-auto">
                 <div class="row">
                     <div class="col-md-7 col-sm-12 col-lg-7">
                         <div class="main-block">
                             <h2 class="text-white">{{$main['title']}}</h2>
-                                {!! $main['subtitle'] !!}
+                                <div class="text-white">
+                                    {!! $main['subtitle'] !!}
+                                </div>
+                                <div class="d-flex align-items-center  py-3">
+                                    <img src="/img/personal.png" style="max-width: 75px"/>
+                                    <div class="mx-2">
+                                        <p class="text-md font-weight-bold text-white mb-0">Индивидуальный подход</p>
+                                        <small class="text-xs text-white mb-0">
+                                            Учитываем предпочтения и потребности каждого клиента
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center  py-3">
+                                    <img src="/img/like.png" style="max-width: 75px"/>
+                                    <div class="mx-2">
+                                        <p class="text-md font-weight-bold text-white mb-0">Качество и в срок</p>
+                                        <small class="text-xs text-white mb-0">
+                                            Обеспечиваем высокий уровень мастерства и внимание к деталям. Выполняем ремонт быстро без ущерба качеству.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center  py-3">
+                                    <img src="/img/innovation.png" style="max-width: 75px"/>
+                                    <div class="mx-2">
+                                        <p class="text-md font-weight-bold text-white mb-0">Инновации</p>
+                                        <small class="text-xs text-white mb-0">
+                                            Следим за актуальными тенденциями и интегрируем современные решения
+                                        </small>
+                                    </div>
+                                </div>
+                            <div class="d-flex align-items-center  py-3">
+                                <img src="/img/guarantee.png" style="max-width: 75px"/>
+                                <div class="mx-2">
+                                    <p class="text-md font-weight-bold text-white mb-0">Гарантия</p>
+                                    <small class="text-xs text-white mb-0">
+                                        Гарантия 14 месяцев на все виды работ
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center  py-3">
+                                <img src="/img/portfolio.png" style="max-width: 75px"/>
+                                <div class="mx-2">
+                                    <p class="text-md font-weight-bold text-white mb-0">Живое портфолио</p>
+                                    <small class="text-xs text-white mb-0">
+                                        Демонстрация наших реальных объектов на любой стадии ремонта.
+                                    </small>
+                                </div>
+                            </div>
                             <a href="#main5" class="btn order-button p-0">Заказать ремонт</a>
                         </div>
                     </div>
@@ -30,7 +77,7 @@
     <div class="red-block"></div>
 
     <section id="main2">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="mt-5">
                 <p class="red-text">{{$about['title']}}</p>
                 <p class="text-danger">{{$about['subtitle']}}</p>
@@ -38,7 +85,7 @@
         </div>
 
         <div class="red-lg-block">
-            <div class="container">
+            <div class="container mx-auto">
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-sm-12">
                         <div class="inner-block text-center text-white">
@@ -65,7 +112,7 @@
     </section>
 
     <section id="main3">
-        <div class="container mt-5 position-relative pb-5">
+        <div class="container mx-auto mt-5 position-relative pb-5">
             <div class="row">
                 @foreach($services as $service)
                 <div class="col-md-4 col-lg-4 col-sm-12 mb-3">
@@ -87,17 +134,16 @@
     </section>
 
     <section id="main4">
-        <div class="container right-red">
+        <div class="container mx-auto right-red">
             <div class="grad">
                 <h2>504 квартиры уже сделаны, <br>
                     86 ремонтируются прямо сейчас</h2>
             </div>
             <p class="mt-3 under-p">Посмотрите, как выглядят готовые ремонты</p>
-
         </div>
 
         <div class="gray-lg-block">
-            <div class="container">
+            <div class="container mx-auto">
                 <div class="row">
                     @foreach($projects as $project)
                     <div class="col-md-4 col-lg-4 col-sm-12">
@@ -118,34 +164,38 @@
     </section>
 
 
-    <div class="container right-red-2">
+    <div class="container mx-auto right-red-2">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-sm-12 bottom-gray"></div>
         </div>
         <div class="grad mt-3">
-            <h2>Оставьте заявку на расчет стоимости</h2>
+            <h2 class="d-block">Оставьте заявку на расчет стоимости</h2>
         </div>
-        <p class="under-p">Оставьте свой номер, наш менеджер расспросит об особенностях <br> квартиры, расскажет о материалах и сориентирует по стоимости.</p>
+        <div>
+            <p class="under-p">Оставьте свой номер, наш менеджер расспросит об особенностях <br> квартиры, расскажет о материалах и сориентирует по стоимости.</p>
+        </div>
 
     </div>
-    <div class="container contact" id="main5">
+    <div class="container mx-auto contact" id="main5">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-sm-12 mb-2">
-                <form action="/send" method="post">
+                <form id="my-form" action="/send" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Имя</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputName1">
+                        <input type="text" name="name" class="form-control" id="name-input">
                     </div>
                     <div class="form-group">
                         <label for="phone-number">Телефон</label>
                         <input type="text" name="phone" class="form-control" id="phone-number" placeholder="+7(000)000-00-00">
                     </div>
-                    <button type="submit" class="btn order-button p-0">Оставить заявку</button>
+                    <div class="flex justify-content-center">
+                        <button id="sendEmail" type="submit" class="btn order-button p-0">Оставить заявку</button>
+                    </div>
                 </form>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 mb-2"></div>
-            <div class="col-md-4 col-lg-4 col-sm-12 mb-2 end-item">
+            <div class="col-md-4 col-lg-4 col-sm-12 end-item my-3">
                 <svg width="175" height="40" viewBox="0 0 175 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="174.359" height="40" fill="url(#pattern0)"/>
                     <defs>
@@ -159,11 +209,11 @@
         </div>
     </div>
 
-    <footer class="row align-items-center">
-        <div class="container">
+    <footer class="row align-items-center py-5">
+        <div class="container mx-auto">
             <div class="row">
                 <div class="col-mg-4 col-lg-4 col-sm-12 text-white text-start">
-                    2023 remaster.kz. All rights reserved.
+                    {{\Carbon\Carbon::now()->year}} remaster.kz. All rights reserved.
                 </div>
                 <div class="col-mg-4 col-lg-4 col-sm-12">
                     <div class="row justify-content-center">
@@ -191,11 +241,51 @@
 @endsection
 
 @push("scripts")
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const element = document.getElementById('phone-number');
         const maskOptions = {
             mask: '+{7}(000)000-00-00'
         };
         const mask = IMask(element, maskOptions);
+    </script>
+
+    <script>
+        $('#my-form').on('submit', function(e) {
+            e.preventDefault();
+            $("#sendEmail").prop("disabled",true);
+            $("#sendEmail").text("Отправка сообщения");
+            $.ajax({
+                type: 'POST',
+                url: '/api/send-mail',
+                data: {
+                    name: $('input[name=name]').val(),
+                    phone: $('input[name=phone]').val(),
+                },
+                success: function(response) {
+                    $('#my-form')[0].reset();
+                    $("#sendEmail").prop("disabled",false);
+                    $("#sendEmail").text("Оставить заявку");
+                    Swal.fire({
+                        title: 'Ура!',
+                        text: 'Спасибо! Наш менеджер свяжется с Вами в течение 2 часов',
+                        icon: 'success',
+                        confirmButtonText: 'Ок'
+                    })
+                },
+                error: function(response) {
+                    $('#my-form')[0].reset();
+                    $("#sendEmail").prop("disabled",false);
+                    $("#sendEmail").text("Оставить заявку");
+                    Swal.fire({
+                        title: 'Упсс!',
+                        text: 'Что-то пошло не так, напишите нам по +77750608077',
+                        icon: 'error',
+                        confirmButtonText: 'Ок'
+                    })
+                }
+            });
+        });
     </script>
 @endpush

@@ -8,7 +8,9 @@ body {
 
 #main1 {
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 20px;
+    padding-top: 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -109,7 +111,7 @@ ul li {
     -webkit-text-fill-color: transparent;
 }
 .grad {
-    height: 98px;
+    min-height: 98px;
 }
 .under-p {
     font-weight: 400;

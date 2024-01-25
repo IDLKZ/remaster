@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post("/send-mail", [\App\Http\Controllers\FrontController::class, 'sendEmail']);
+Route::post("/freedom-info", [\App\Http\Controllers\Api\FreedomController::class, 'info']);
+Route::post("/freedom-success", [\App\Http\Controllers\Api\FreedomController::class, 'success']);
+Route::post("/freedom-failure", [\App\Http\Controllers\Api\FreedomController::class, 'failure']);

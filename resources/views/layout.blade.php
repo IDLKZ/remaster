@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     @livewireStyles
     <title>Remaster</title>
     @stack('styles')
@@ -149,6 +148,7 @@
 		$('.nav-link').click(function(){
 			$("#navbarSupportedContent").collapse("hide");
 		})
+
 	</script>
 </body>
 </html>

@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "brian2694/laravel-toastr": "^5.59",
         "doctrine/dbal": "~2.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -20,6 +21,7 @@
         "laravel/ui": "^3.4",
         "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.12",
+        "php-flasher/flasher-toastr-laravel": "^1.15",
         "qcod/laravel-imageup": "^1.1",
         "yoeunes/toastr": "^1.2"
     },

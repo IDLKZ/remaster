@@ -28,3 +28,11 @@ Route::group(['middleware' => 'auth'], function (){
 Route::post('/send', [\App\Http\Controllers\FrontController::class, 'sendEmail']);
 Route::get('freedom-payment', [App\Http\Controllers\FreedomController::class,"index"])->name("freedom-payment");
 Route::get('freedom-payment-info/{uuid}', [App\Http\Controllers\FreedomController::class,"info"])->name("freedom-info");
+
+Route::get("clean-all",function (){
+    \Illuminate\Support\Facades\Artisan::call("config:cache");
+    \Illuminate\Support\Facades\Artisan::call("config:clear");
+    \Illuminate\Support\Facades\Artisan::call("cache:clear");
+    \Illuminate\Support\Facades\Artisan::call("optimize:clear");
+    return "OK";
+});

@@ -189,6 +189,7 @@ class FreedomService
                 "period"=>$data["credit_params"]["period"],
                 "principal"=>$data["credit_params"]["principal"],
                 "uuid"=>$raw["uuid"],
+                'reference_id'=>Carbon::now()->millisecond . "" . auth()->id(),
                 "is_success"=>true
             ]);
             toastr()->addSuccess("Успешно отправлена заявка!");

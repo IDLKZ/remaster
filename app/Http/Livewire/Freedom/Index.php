@@ -41,7 +41,7 @@ class Index extends Component
     public function sendOTP(){
         $this->validate(
             [
-                "mobile_phone"=>["required","regex:/^\+?77([0124567][0-8]\d{7})$/"],
+                "mobile_phone"=>["required"],
                 "iin"=>["required","regex:/^\d{12}$/"],
             ],
             [
@@ -63,7 +63,7 @@ class Index extends Component
     public function validateOTP(){
         $this->validate(
             [
-                "mobile_phone"=>["required","regex:/^\+?77([0124567][0-8]\d{7})$/"],
+                "mobile_phone"=>["required"],
                 "iin"=>["required","regex:/^\d{12}$/"],
                 "code"=>["required"],
             ],

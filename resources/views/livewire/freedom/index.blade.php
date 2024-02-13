@@ -31,21 +31,37 @@
                                             wire:target="loading"
                                             wire:loading.attr="disabled"
                                             wire:click="sendOTP()"
+                                            wire:loading.remove
                                             @unless(!$loading) disabled @endunless
                                             class="btn btn-success">
                                         Отправить
                                     </button>
                             </div>
+                            <div wire:loading wire:target="sendOTP()">
+                                <div class="text-right">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Ожидайте...</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         @endif
                         @if($stepId == 2)
                             <div class="text-right">
                                     <button wire:loading.attr="disabled"
                                             wire:target="loading"
                                             wire:click="validateOTP()"
-                                            @unless(!$loading) disabled @endunless
+                                            wire:loading.remove
                                             class="btn btn-success">
                                         Отправить
                                     </button>
+                            </div>
+                            <div wire:loading wire:target="validateOTP()">
+                                <div class="text-right">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only">Ожидайте...</span>
+                                    </div>
+                                </div>
                             </div>
 
                         @endif
@@ -99,9 +115,16 @@
                                     wire:loading.attr="disabled"
                                     wire:target="loading"
                                     wire:click="sendToScrollData()"
-                                    @unless(!$loading) disabled @endunless
                                     type="submit"
+                                    wire:loading.remove
                                     class="btn btn-success">Отправить</button>
+                                <div wire:loading wire:target="sendToScrollData()">
+                                    <div class="text-right">
+                                        <div class="spinner-border" role="status">
+                                            <span class="sr-only">Ожидайте...</span>
+                                        </div>
+                                    </div>
+                                </div>
                             @endif
 
                             @if($uuid)

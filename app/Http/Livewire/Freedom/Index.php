@@ -88,7 +88,7 @@ class Index extends Component
     public function sendToScrollData(){
         $this->validate(
             [
-                "mobile_phone"=>["required","regex:/^\+?77([0124567][0-8]\d{7})$/"],
+                "mobile_phone"=>["required"],
                 "iin"=>["required","regex:/^\d{12}$/"],
                 "code"=>["required"],
                 "email"=>["required","email"],

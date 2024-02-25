@@ -36,3 +36,6 @@ Route::get("clean-all",function (){
     \Illuminate\Support\Facades\Artisan::call("optimize:clear");
     return "OK";
 });
+
+
+Route::resource('advantages', App\Http\Controllers\AdvantageController::class);

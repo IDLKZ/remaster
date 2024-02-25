@@ -19,7 +19,6 @@ use QCod\ImageUp\HasImageUploads;
 class Project extends Model
 {
 //    use SoftDeletes;
-
     use HasFactory;
 
     public $table = 'projects';

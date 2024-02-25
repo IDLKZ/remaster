@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Advantage;
 use App\Models\Contact;
 use App\Models\Main;
 use App\Models\Project;
@@ -67,8 +68,8 @@ class FrontController extends Controller
             $projects[2]['img'] = 'img/house-2.png';
         }
         $contact = Contact::latest()->first();
-
-        return view('welcome', compact('main', 'about', 'services', 'projects', 'contact'));
+        $advantages = Advantage::all();
+        return view('welcome', compact('main', 'about', 'services', 'projects', 'contact',"advantages"));
     }
 
     public function sendEmail(Request $request)

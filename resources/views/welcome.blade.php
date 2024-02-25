@@ -21,51 +21,6 @@
                                 <div class="text-white">
                                     {!! $main['subtitle'] !!}
                                 </div>
-                                <div class="d-flex align-items-center  py-3">
-                                    <img src="/img/personal.png" style="max-width: 75px"/>
-                                    <div class="mx-2">
-                                        <p class="text-md font-weight-bold text-white mb-0">Индивидуальный подход</p>
-                                        <small class="text-xs text-white mb-0">
-                                            Учитываем предпочтения и потребности каждого клиента
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center  py-3">
-                                    <img src="/img/like.png" style="max-width: 75px"/>
-                                    <div class="mx-2">
-                                        <p class="text-md font-weight-bold text-white mb-0">Качество и в срок</p>
-                                        <small class="text-xs text-white mb-0">
-                                            Обеспечиваем высокий уровень мастерства и внимание к деталям. Выполняем ремонт быстро без ущерба качеству.
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center  py-3">
-                                    <img src="/img/innovation.png" style="max-width: 75px"/>
-                                    <div class="mx-2">
-                                        <p class="text-md font-weight-bold text-white mb-0">Инновации</p>
-                                        <small class="text-xs text-white mb-0">
-                                            Следим за актуальными тенденциями и интегрируем современные решения
-                                        </small>
-                                    </div>
-                                </div>
-                            <div class="d-flex align-items-center  py-3">
-                                <img src="/img/guarantee.png" style="max-width: 75px"/>
-                                <div class="mx-2">
-                                    <p class="text-md font-weight-bold text-white mb-0">Гарантия</p>
-                                    <small class="text-xs text-white mb-0">
-                                        Гарантия 14 месяцев на все виды работ
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center  py-3">
-                                <img src="/img/portfolio.png" style="max-width: 75px"/>
-                                <div class="mx-2">
-                                    <p class="text-md font-weight-bold text-white mb-0">Живое портфолио</p>
-                                    <small class="text-xs text-white mb-0">
-                                        Демонстрация наших реальных объектов на любой стадии ремонта.
-                                    </small>
-                                </div>
-                            </div>
                             <a href="#main5" class="btn order-button p-0">Заказать ремонт</a>
                         </div>
                     </div>
@@ -73,6 +28,39 @@
                 </div>
             </div>
         </section>
+        @if($advantages->isNotEmpty())
+            <section>
+                <div class="container mx-auto my-4">
+                    <div class="row py-3">
+                        @foreach($advantages as $advantage)
+                            <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                                <div class="card p-4 shadow-lg h-100 d-flex">
+                                    <div class="card-container d-flex justify-content-center align-items-center align-content-center">
+                                        <div
+                                            class="card-img"
+                                            style="
+                                        width: 150px;
+                                        height: 150px;
+                                        background-repeat: no-repeat;
+                                        background-size: contain;
+                                        background-position: center;
+                                        background-image: url({{$advantage->image_url}});
+                                        "
+                                        >
+                                        </div>
+                                    </div>
+                                    <div class="text-center px-3 py-3">
+                                        <h6>{{$advantage->title}}</h6>
+                                        <small class="mt-4">{{$advantage->title}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </section>
+        @endif
 
     <div class="red-block"></div>
 

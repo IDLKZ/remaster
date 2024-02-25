@@ -28,3 +28,9 @@
         <span>Контакты</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('advantages*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('advantages.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Преимущества</span>
+    </a>
+</li>

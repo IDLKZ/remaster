@@ -2,8 +2,14 @@
         <div class="row">
             <div class="shadow-lg my-5 w-100 rounded-lg border border-success">
                 <div class="col-12 text-center text-lg-left" style="background: #398f30; color: white; padding: 20px 10px 20px 10px">
-                    <h2 class="text-white d-none d-lg-inline">Freedom Finance Credit - получение онлайн кредита/рассрочку</h2>
-                    <h4 class="text-white d-inline d-lg-none">Freedom Finance Credit - получение онлайн кредита/рассрочку</h4>
+                    <div class="d-lg-flex align-items-center">
+                        <img style="max-width: 250px" class="mx-2" src="/img/Logo Credit.png"/>
+                        <div class="px-2">
+                            <h2 class="text-white d-none d-lg-inline">Получение онлайн кредита/рассрочку</h2>
+                            <h4 class="text-white d-inline d-lg-none">Получение онлайн кредита/рассрочку</h4>
+                        </div>
+                    </div>
+
                 </div>
                 @if($stepId == 1 || $stepId == 2)
                     <div class="col-12 md:col-6 py-5">

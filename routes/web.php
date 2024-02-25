@@ -39,3 +39,12 @@ Route::get("clean-all",function (){
 
 
 Route::resource('advantages', App\Http\Controllers\AdvantageController::class);
+
+
+Route::resource('freedomRequests', App\Http\Controllers\FreedomRequestController::class);
+
+
+Route::resource('freedomTokens', App\Http\Controllers\FreedomTokenController::class);
+
+
+Route::resource('freedomResponses', App\Http\Controllers\FreedomResponseController::class);

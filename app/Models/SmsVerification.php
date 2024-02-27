@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use QCod\ImageUp\HasImageUploads;
 
 class SmsVerification extends Model
 {

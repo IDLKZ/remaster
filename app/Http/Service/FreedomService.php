@@ -4,9 +4,11 @@ namespace App\Http\Service;
 
 use App\Models\FreedomRequest;
 use App\Models\FreedomToken;
+use App\Models\SmsVerification;
 use http\Env;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class FreedomService
 {
@@ -195,6 +197,10 @@ class FreedomService
                 "is_success"=>true
             ]);
                 toastr()->addSuccess("Успешно оформлена заявка!");
+            Mail::send("mail.mail",["title"=>"Remaster.kz ваша кредитная заявка"],function ($message) use ($data,$raw){
+                $message->to($data["email"],"Заявка на кредит/рассрочку от Freedom Finance");
+                $message->from('sender@remaster.kz', "Ваша заявка принята, детали по заявке доступны по адресу: https://remaster.kz/freedom-payment-info/".$raw["uuid"])->subject('Заявка с сайта remaster.kz');
+            });
             return $raw["uuid"];
         }
         else{
@@ -243,6 +249,11 @@ class FreedomService
     public static function sendCodeToBioVerification($uuid){
         $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->post(env(self::FREEDOM_BACK_API).self::SEND_TO_SMS_VERIFICATION_URL .$uuid,["success"=>true]);
         if($request->status() == 200){
+            SmsVerification::create([
+                "uuid"=>$uuid,
+                "start_at"=>Carbon::now(),
+                "expired_at"=>Carbon::now()->addHour(),
+            ]);
             toastr()->addSuccess("СМС со ссылкой на прохождение биометрии отправлено на ваш номер телефона!");
         }
         else{

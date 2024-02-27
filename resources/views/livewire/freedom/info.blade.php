@@ -27,11 +27,18 @@
                             @endif
                         </li>
                         @if($data["result"] == "APPROVED")
-                            @if($showSendButton)
+                            @if($showSendButton && $this->send)
                                 <br/>
                                 <div class="my-3">
                                     <a class="btn btn-success text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии для завершения заявки</a>
                                 </div>
+                            @else
+                                @if($sendedBefore)
+                                    <li class="list-group-item d-flex align-items-center">
+                                        Вы ранее отправляли заявку, возможность отправить повторно: {{$sendedBefore->expired_at->format('dd/mm/yyyy H:i')}}
+                                    </li>
+                                @endif
+
                             @endif
                         @endif
                         @if($data["alternative_reason"])

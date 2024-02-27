@@ -129,6 +129,7 @@ class Index extends Component
        $this->loading = false;
        $this->uuid = $result;
        if($result){
+
            return redirect()->route("freedom-info",["uuid"=>$this->uuid]);
        }
     }

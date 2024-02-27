@@ -22,7 +22,7 @@
                                 @if($data["result"] == "APPROVED")
                                     @if($showSendButton)
                                         <div class="my-3 text-right">
-                                            <a class="text-success" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии</a>
+                                            <a class="btn btn-success text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии</a>
                                         </div>
                                     @endif
                                 @endif

@@ -17,6 +17,7 @@ class Info extends Component
         $this->uuid = $uuid;
         $this->data = FreedomService::getScrollInfoByUUID($uuid);
         $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
+        $this->sendSMSCode();
 
     }
 
@@ -29,7 +30,7 @@ class Info extends Component
     {
         if($this->uuid){
             $this->showSendButton = false;
-            FreedomService::sendCodeToBioVerification($this->uuid);
+
         }
     }
 }

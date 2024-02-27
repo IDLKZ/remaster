@@ -19,14 +19,6 @@
                                 <span class="badge badge-success badge-pill ml-2">
                                     Принято в обработку
                                 </span>
-                                @if($data["result"] == "APPROVED")
-                                    @if($showSendButton)
-                                        <br/>
-                                        <div class="my-3 text-right">
-                                            <a class="btn btn-success text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии</a>
-                                        </div>
-                                    @endif
-                                @endif
                             @endif
                             @if($data["result"] == "ISSUED")
                                 <span class="badge badge-success badge-pill ml-2">
@@ -34,6 +26,14 @@
                                 </span>
                             @endif
                         </li>
+                        @if($data["result"] == "APPROVED")
+                            @if($showSendButton)
+                                <br/>
+                                <div class="my-3 text-right">
+                                    <a class="btn btn-success text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии для завершения заявки</a>
+                                </div>
+                            @endif
+                        @endif
                         @if($data["alternative_reason"])
                             <li class="list-group-item d-flex align-items-center">
                                 Причина:

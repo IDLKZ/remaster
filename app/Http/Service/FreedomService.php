@@ -234,7 +234,7 @@ class FreedomService
         }
         else{
             $raw = json_decode($request->body(),true);
-            toastr()->addError("Что-то пошло не так");
+            toastr()->addError(env(self::FREEDOM_BACK_API).self::GET_SCROLL_BASE_RESULT_BY_UUID .$uuid);
             toastr()->addError($raw["detail"]);
 
         }

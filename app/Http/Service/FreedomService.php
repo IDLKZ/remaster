@@ -243,7 +243,9 @@ class FreedomService
             toastr()->addSuccess("СМС со ссылкой на прохождение биометрии отправлено на ваш номер телефона!");
         }
         else{
-            toastr()->addError("Что-то пошло не так при отправке смс на номер телефона");
+            $raw = json_decode($request->body(),true);
+            toastr()->addError("Что-то пошло не так при отправке смс на номер телефона:");
+            toastr()->addError($raw["detail"]);
         }
     }
 

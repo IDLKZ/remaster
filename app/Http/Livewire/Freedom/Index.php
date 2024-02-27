@@ -128,6 +128,9 @@ class Index extends Component
        $this->showFinalButton = $result != null ? false : true;
        $this->loading = false;
        $this->uuid = $result;
+       if($result){
+           return redirect()->route("freedom-info-hook",$this->uuid);
+       }
     }
 
 

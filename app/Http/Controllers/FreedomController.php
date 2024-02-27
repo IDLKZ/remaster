@@ -13,4 +13,9 @@ class FreedomController extends Controller
     public function info($uuid){
         return view("freedom.info",compact("uuid"));
     }
+
+    public function freedomInfo(Request $request){
+        $data = $request->all();
+        return view("freedom.freedom-info",compact("data"));
+    }
 }

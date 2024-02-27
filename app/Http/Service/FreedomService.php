@@ -25,6 +25,8 @@ class FreedomService
         public const VALIDATE_OTP_URL = "/ffc-api-public/universal/general/validate-otp";
         public const SEND_TO_SCROLL_URL = "/ffc-api-public/universal/apply/apply-lead";
         public const GET_SCROLL_RESULT_BY_UUID = "/ffc-api-public/universal/general/scoring-result/";
+        public const GET_SCROLL_BASE_RESULT_BY_UUID = "/ffc-api-public/universal/general/base-information/";
+        public const SEND_TO_SMS_VERIFICATION_URL = "/ffc-api-public/universal/general/send-redirect-url/";
 
         public const PAYMENT_MONTH = [
             "install_3"=>3,
@@ -190,9 +192,16 @@ class FreedomService
                 "principal"=>$data["credit_params"]["principal"],
                 "uuid"=>$raw["uuid"],
                 'reference_id'=>Carbon::now()->millisecond . "" . auth()->id(),
-                "is_success"=>true
+                "is_success"=>$raw["result"] == "APPROVED" ? true : false
             ]);
-            toastr()->addSuccess("Успешно отправлена заявка!");
+            if($raw["result"] == "APPROVED"){
+                toastr()->addSuccess("Успешно оформлена заявка!");
+                self::sendCodeToBioVerification($raw["uuid"]);
+            }
+            else if($raw["result"] == "REJECTED"){
+                toastr()->addError("Упс, заявка отклонена!");
+                toastr()->addError($raw["alternative_reason"]);
+            }
             return $raw["uuid"];
         }
         else{
@@ -221,6 +230,27 @@ class FreedomService
         }
         else{
             toastr()->addError("Что-то пошло не так");
+        }
+    }
+
+    public static function getBaseScrollInfoByUUID($uuid){
+        $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->get(env(self::FREEDOM_BACK_API).self::GET_SCROLL_BASE_RESULT_BY_UUID .$uuid);
+        if($request->status() == 200){
+            $raw = json_decode($request->body(),true);
+            return $raw;
+        }
+        else{
+            toastr()->addError("Что-то пошло не так");
+        }
+    }
+
+    public static function sendCodeToBioVerification($uuid){
+        $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->post(env(self::FREEDOM_BACK_API).self::SEND_TO_SMS_VERIFICATION_URL .$uuid,["success"=>true]);
+        if($request->status() == 200){
+            toastr()->addSuccess("СМС со ссылкой на прохождение биометрии отправлено на ваш номер телефона!");
+        }
+        else{
+            toastr()->addError("Что-то пошло не так при отправке смс на номер телефона");
         }
     }
 

@@ -17,7 +17,12 @@
                             @endif
                             @if($data["result"] == "APPROVED")
                                 <span class="badge badge-success badge-pill ml-2">
-                                    Принято
+                                    Принято в обработку
+                                </span>
+                            @endif
+                            @if($data["result"] == "ISSUED")
+                                <span class="badge badge-success badge-pill ml-2">
+                                    Заявка завершена
                                 </span>
                             @endif
                         </li>
@@ -37,14 +42,6 @@
                             </span>
                             </li>
                         @endif
-{{--                        @if($data["redirect_url"])--}}
-{{--                            <li class="list-group-item d-flex align-items-center">--}}
-{{--                                Доп ссылка:--}}
-{{--                                <span class="badge badge-danger badge-pill ml-2">--}}
-{{--                                    {{$data["redirect_url"]}}--}}
-{{--                                </span>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
                         @if($data["approved_params"])
                             <li class="list-group-item d-flex align-items-center">
                                 Месяцы:
@@ -87,6 +84,61 @@
                             </li>
                         @endif
                     </ul>
+                    <hr/>
+                    @if($additional_data)
+                        <ul class="list-group my-3">
+                            @if($additional_data["borrower_data"])
+                                @if($additional_data["borrower_data"]["iin"])
+                                    <li class="list-group-item d-flex align-items-center">
+                                        ИИН Заявителя:{{$additional_data["borrower_data"]["iin"]}}
+                                    </li>
+                                @endif
+                                @if($additional_data["borrower_data"]["email"])
+                                    <li class="list-group-item d-flex align-items-center">
+                                        ИИН Заявителя:{{$additional_data["borrower_data"]["email"]}}
+                                    </li>
+                                @endif
+                                @if($additional_data["borrower_data"]["full_name"])
+                                    <li class="list-group-item d-flex align-items-center">
+                                        ФИО Заявителя:{{$additional_data["borrower_data"]["full_name"]}}
+                                    </li>
+                                @endif
+                                    @if($additional_data["borrower_data"]["mobile_phone"])
+                                        <li class="list-group-item d-flex align-items-center">
+                                            Номер Заявителя:{{$additional_data["borrower_data"]["mobile_phone"]}}
+                                        </li>
+                                    @endif
+                                    @if($additional_data["borrower_data"]["borrower_type"])
+                                        <li class="list-group-item d-flex align-items-center">
+                                            Тип Заявителя:{{$additional_data["borrower_data"]["borrower_type"]}}
+                                        </li>
+                                    @endif
+                                    @if($additional_data["borrower_data"]["document_number"])
+                                        <li class="list-group-item d-flex align-items-center">
+                                            Номер Документа:{{$additional_data["borrower_data"]["document_number"]}}
+                                        </li>
+                                    @endif
+                                    @if($additional_data["borrower_data"]["document_issue_date"])
+                                        <li class="list-group-item d-flex align-items-center">
+                                            Дата Документа:{{$additional_data["borrower_data"]["document_issue_date"]}}
+                                        </li>
+                                    @endif
+                            @endif
+                                @if($additional_data["signed_at"])
+                                    <li class="list-group-item d-flex align-items-center">
+                                        Дата Подписания:{{$additional_data["signed_at"]}}
+                                    </li>
+                                @endif
+                        </ul>
+                    @endif
+                    <hr/>
+                    @if($data["result"] == "APPROVED")
+                        @if($showSendButton)
+                            <div class="my-3 text-right">
+                                <a class="text-success" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрию</a>
+                            </div>
+                        @endif
+                    @endif
                 </div>
             @endif
         </div>

@@ -14,25 +14,28 @@
             @if($data)
                 <div class="col-12 py-3 px-2">
                     <ul class="list-group my-3">
-                        <li class="list-group-item d-flex align-items-center">
-                            Статус:
-                            @if($data["result"] == "REJECTED")
-                                <span class="badge badge-danger badge-pill ml-2">
+                        @if(isset($data["result"]))
+                            <li class="list-group-item d-flex align-items-center">
+                                Статус:
+                                @if($data["result"] == "REJECTED")
+                                    <span class="badge badge-danger badge-pill ml-2">
                                     Отказано
                                 </span>
-                            @endif
-                            @if($data["result"] == "APPROVED")
-                                <span class="badge badge-success badge-pill ml-2">
+                                @endif
+                                @if($data["result"] == "APPROVED")
+                                    <span class="badge badge-success badge-pill ml-2">
                                     Принято в обработку
                                 </span>
-                            @endif
-                            @if($data["result"] == "ISSUED")
-                                <span class="badge badge-success badge-pill ml-2">
+                                @endif
+                                @if($data["result"] == "ISSUED")
+                                    <span class="badge badge-success badge-pill ml-2">
                                     Заявка завершена
                                 </span>
-                            @endif
-                        </li>
-                        @if($data["uuid"])
+                                @endif
+                            </li>
+                        @endif
+
+                        @if(isset($data["uuid"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Уникальный идентификатор:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -40,7 +43,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["alternative_reason"])
+                        @if(isset($data["alternative_reason"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Причина:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -48,7 +51,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["alternative_sum"])
+                        @if(isset($data["alternative_sum"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Альтернативная сумма:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -56,7 +59,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["approved_params"])
+                        @if(isset($data["approved_params"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Месяцы:
                                 <span class="badge badge-info badge-pill ml-2">
@@ -77,7 +80,7 @@
                                 </span>
                             </li>
                         @endif
-                        @if($data["product"])
+                        @if(isset($data["product"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Тип:
                                 @if($data["product"] == "REMASTERKZ" || $data["product"] == "REMASTERKZ_24")
@@ -92,7 +95,7 @@
                                 @endif
                             </li>
                         @endif
-                        @if($data["iin"])
+                        @if(isset($data["iin"]))
                             <li class="list-group-item d-flex align-items-center">
                                 ИИН:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -100,7 +103,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["mobile_phone"])
+                        @if(isset($data["mobile_phone"]))
                             <li class="list-group-item d-flex align-items-center">
                                 ИИН:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -108,7 +111,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["first_name"])
+                        @if(isset($data["first_name"]))
                             <li class="list-group-item d-flex align-items-center">
                                 ИМЯ:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -116,7 +119,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["last_name"])
+                        @if(isset($data["last_name"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Фамилия:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -124,7 +127,7 @@
                             </span>
                             </li>
                         @endif
-                        @if($data["middle_name"])
+                        @if(isset($data["middle_name"]))
                             <li class="list-group-item d-flex align-items-center">
                                 Отчество:
                                 <span class="badge badge-danger badge-pill ml-2">
@@ -140,11 +143,5 @@
 
         </div>
     </div>
-
-
-
-
-
-
 
 @endsection

@@ -182,7 +182,7 @@ class FreedomService
         $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->post(env(self::FREEDOM_BACK_API).self::SEND_TO_SCROLL_URL,$data);
         if($request->status() == 202){
             $raw = json_decode($request->body(),true);
-            dd($raw);
+            $result = self::getScrollInfoByUUID($raw["uuid"]);
             FreedomRequest::create([
                 "iin"=>$data["iin"],
                 "mobile_phone"=>$data["mobile_phone"],
@@ -193,13 +193,13 @@ class FreedomService
                 "principal"=>$data["credit_params"]["principal"],
                 "uuid"=>$raw["uuid"],
                 'reference_id'=>Carbon::now()->millisecond . "" . auth()->id(),
-                "is_success"=>$raw["result"] == "APPROVED" ? true : false
+                "is_success"=>$result["result"] == "APPROVED" ? true : false
             ]);
-            if($raw["result"] == "APPROVED"){
+            if($result["result"] == "APPROVED"){
                 toastr()->addSuccess("Успешно оформлена заявка!");
                 self::sendCodeToBioVerification($raw["uuid"]);
             }
-            else if($raw["result"] == "REJECTED"){
+            else if($result["result"] == "REJECTED"){
                 toastr()->addError("Упс, заявка отклонена!");
                 toastr()->addError($raw["alternative_reason"]);
             }

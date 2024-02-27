@@ -2,6 +2,7 @@
 
 namespace App\Http\Service;
 
+use App\Mail\FreedomMail;
 use App\Models\FreedomRequest;
 use App\Models\FreedomToken;
 use App\Models\SmsVerification;
@@ -184,7 +185,7 @@ class FreedomService
         $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->post(env(self::FREEDOM_BACK_API).self::SEND_TO_SCROLL_URL,$data);
         if($request->status() == 202){
             $raw = json_decode($request->body(),true);
-            FreedomRequest::create([
+            $freedomRequest = FreedomRequest::create([
                 "iin"=>$data["iin"],
                 "mobile_phone"=>$data["mobile_phone"],
                 "verification_sms_code"=>$data["verification_sms_code"],
@@ -197,10 +198,7 @@ class FreedomService
                 "is_success"=>true
             ]);
                 toastr()->addSuccess("Успешно оформлена заявка!");
-            Mail::send("mail.mail",["title"=>"Remaster.kz ваша кредитная заявка"],function ($message) use ($data,$raw){
-                $message->to($data["email"],"Заявка на кредит/рассрочку от Freedom Finance");
-                $message->from('sender@remaster.kz', "Ваша заявка принята, детали по заявке доступны по адресу: https://remaster.kz/freedom-payment-info/".$raw["uuid"])->subject('Заявка с сайта remaster.kz');
-            });
+                Mail::to($data["email"])->send(new FreedomMail($freedomRequest));
             return $raw["uuid"];
         }
         else{

@@ -26,6 +26,9 @@ class Info extends Component
                 $this->send = false;
             }
         }
+        if($this->sendedBefore == null){
+            $this->sendSMSCode();
+        }
         if ($this->data["result"] == "ISSUED"){
             $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
         }

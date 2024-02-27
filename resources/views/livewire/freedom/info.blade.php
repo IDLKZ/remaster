@@ -34,8 +34,8 @@
                                 </div>
                             @else
                                 @if($sendedBefore)
-                                    <li class="list-group-item d-flex align-items-center">
-                                        Вы ранее отправляли заявку, возможность отправить повторно: {{$sendedBefore->expired_at->format('dd/mm/yyyy H:i')}}
+                                    <li class="list-group-item d-flex align-items-center text-warning">
+                                        Вы ранее отправляли заявку, возможность отправить повторно будет возможно в: {{$sendedBefore->expired_at->format('d/m/YYYY H:i')}}
                                     </li>
                                 @endif
 

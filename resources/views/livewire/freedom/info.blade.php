@@ -19,6 +19,13 @@
                                 <span class="badge badge-success badge-pill ml-2">
                                     Принято в обработку
                                 </span>
+                                @if($data["result"] == "APPROVED")
+                                    @if($showSendButton)
+                                        <div class="my-3 text-right">
+                                            <a class="text-success" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии</a>
+                                        </div>
+                                    @endif
+                                @endif
                             @endif
                             @if($data["result"] == "ISSUED")
                                 <span class="badge badge-success badge-pill ml-2">
@@ -132,13 +139,6 @@
                         </ul>
                     @endif
                     <hr/>
-                    @if($data["result"] == "APPROVED")
-                        @if($showSendButton)
-                            <div class="my-3 text-right">
-                                <a class="text-success" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрию</a>
-                            </div>
-                        @endif
-                    @endif
                 </div>
             @endif
         </div>

@@ -16,8 +16,9 @@ class Info extends Component
     {
         $this->uuid = $uuid;
         $this->data = FreedomService::getScrollInfoByUUID($uuid);
-        $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
-
+        if ($this->data["result"] == "ISSUED"){
+            $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
+        }
     }
 
     public function render()

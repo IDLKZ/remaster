@@ -227,14 +227,14 @@ class FreedomService
     }
 
     public static function getBaseScrollInfoByUUID($uuid){
-        $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->get("https://fastcash-back.trafficwave.kz/ffc-api-public/universal/general/base-information/e5cc64bb-d91a-4bd0-8622-360ff40c0709");
+        $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->get(env(self::FREEDOM_BACK_API).self::GET_SCROLL_BASE_RESULT_BY_UUID .$uuid);
         if($request->status() == 200){
             $raw = json_decode($request->body(),true);
             return $raw;
         }
         else{
             $raw = json_decode($request->body(),true);
-            dd(env(self::FREEDOM_BACK_API).self::GET_SCROLL_BASE_RESULT_BY_UUID .$uuid);
+            toastr()->addError("Что-то пошло не так");
             toastr()->addError($raw["detail"]);
 
         }

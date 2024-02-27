@@ -182,6 +182,7 @@ class FreedomService
         $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->post(env(self::FREEDOM_BACK_API).self::SEND_TO_SCROLL_URL,$data);
         if($request->status() == 202){
             $raw = json_decode($request->body(),true);
+            dd($raw);
             FreedomRequest::create([
                 "iin"=>$data["iin"],
                 "mobile_phone"=>$data["mobile_phone"],

@@ -23,7 +23,7 @@
                                 </span>
                                 @endif
                                 @if($data["result"] == "APPROVED")
-                                    <span class="badge badge-success badge-pill ml-2">
+                                    <span class="badge badge-info badge-pill ml-2">
                                     Принято в обработку
                                 </span>
                                 @endif

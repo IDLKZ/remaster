@@ -92,8 +92,8 @@
                             </li>
                         @endif
                     </ul>
-                    <hr/>
                     @if($additional_data)
+                        <hr/>
                         <ul class="list-group my-3">
                             @if($additional_data["borrower_data"])
                                 @if($additional_data["borrower_data"]["iin"])
@@ -138,8 +138,9 @@
                                     </li>
                                 @endif
                         </ul>
+                        <hr/>
                     @endif
-                    <hr/>
+
                 </div>
             @endif
         </div>

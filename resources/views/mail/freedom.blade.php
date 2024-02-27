@@ -55,7 +55,7 @@
     <div class="content">
         <p>Ваша заявка {{$freedomRequest->uuid}} успешно оформлена</p>
         <p>Детали заявки доступны по следующему адресу</p>
-        <a class="btn btn-info" href="https://remaster.kz/freedom-payment-info/"{{$freedomRequest->uuid}}>Детали</a><br/>
+        <a class="btn btn-info" href="https://remaster.kz/freedom-payment-info/{{$freedomRequest->uuid}}">Детали</a><br/>
         <small>https://remaster.kz/freedom-payment-info/{{$freedomRequest->uuid}}</small>
         <p>Если это не вы просим посетить remaster.kz или позвонить по телефону +7 775 060 80 77</p>
     </div>

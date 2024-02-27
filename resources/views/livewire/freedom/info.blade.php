@@ -35,7 +35,7 @@
                             @else
                                 @if($sendedBefore)
                                     <li class="list-group-item d-flex align-items-center text-warning">
-                                        Вы ранее отправляли заявку, возможность отправить повторно будет возможно в: {{$sendedBefore->expired_at->format('d/m/YYYY H:i')}}
+                                        Вы ранее отправляли заявку, возможность отправить повторно будет возможно в: {{$sendedBefore->expired_at->format('d/m/Y H:i')}}
                                     </li>
                                 @endif
 

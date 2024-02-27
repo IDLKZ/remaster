@@ -24,7 +24,7 @@
                                 @endif
                                 @if($data["result"] == "APPROVED")
                                     <span class="badge badge-info badge-pill ml-2">
-                                    Принято в обработку
+                                    Принято в обработку ( подтвердите биометрию отправленную в виде смс )
                                 </span>
                                 @endif
                                 @if($data["result"] == "ISSUED")

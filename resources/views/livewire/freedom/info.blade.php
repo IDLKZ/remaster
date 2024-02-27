@@ -17,7 +17,7 @@
                             @endif
                             @if($data["result"] == "APPROVED")
                                 <span class="badge badge-info badge-pill ml-2">
-                                    Принято в обработку
+                                     Принято в обработку ( подтвердите биометрию отправленную в виде смс )
                                 </span>
                             @endif
                             @if($data["result"] == "ISSUED")
@@ -30,7 +30,7 @@
                             @if($showSendButton && $this->send)
                                 <br/>
                                 <div class="my-3">
-                                    <a class="btn btn-success text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии для завершения заявки</a>
+                                    <a class="btn btn-info text-white" wire:click="sendSMSCode()">Отправить СМС на прохождение биометрии для завершения заявки</a>
                                 </div>
                             @else
                                 @if($sendedBefore)

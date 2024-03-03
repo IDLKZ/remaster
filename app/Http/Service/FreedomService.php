@@ -10,6 +10,7 @@ use http\Env;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Psy\Util\Str;
 
 class FreedomService
 {
@@ -176,6 +177,7 @@ class FreedomService
             "additional_information"=>[
                 "success_url"=>$success_url,
                 "failure_url"=>$failure_url,
+                "reference_id"=>\Illuminate\Support\Str::uuid(),
             ]
         ];
         return $data;

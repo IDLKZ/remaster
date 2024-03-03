@@ -18,4 +18,11 @@ class FreedomController extends Controller
         $data = $request->all();
         return view("freedom.freedom-info",compact("data"));
     }
+
+    public function success(Request $request){
+        return view("freedom.success");
+    }
+    public function failure(Request $request){
+        return view("freedom.failure");
+    }
 }

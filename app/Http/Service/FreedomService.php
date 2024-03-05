@@ -229,8 +229,9 @@ class FreedomService
         }
         else{
             $raw = json_decode($request->body(),true);
+            dd($raw);
             toastr()->addError("Что-то пошло не так");
-            toastr()->addError($raw);
+
         }
     }
 

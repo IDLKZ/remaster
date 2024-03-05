@@ -228,9 +228,13 @@ class FreedomService
             return $raw;
         }
         else{
-            dd($request->status());
-            toastr()->addError("Что-то пошло не так");
-
+            if($request->status() == 204){
+                toastr()->addError("Заявка не оформлена, попробуйте еще раз");
+                return redirect()->route("freedom-payment");
+            }
+            else{
+                toastr()->addError("Что-то пошло не так");
+            }
         }
     }
 

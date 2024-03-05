@@ -29,10 +29,15 @@ class Info extends Component
         if($this->sendedBefore == null){
             $this->sendSMSCode();
         }
-        dd($this->data);
-        if ($this->data["result"] == "ISSUED"){
-            $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
+        if($this->data != null){
+            if(isset($this->data["result"])){
+                if ($this->data["result"] == "ISSUED"){
+                    $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
+                }
+            }
+
         }
+
     }
 
     public function render()

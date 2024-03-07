@@ -41,7 +41,7 @@
                                     </button>
                             </div>
                             <div wire:loading>
-                                <div class="text-right">
+                                <div class="flex justify-content-center">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
                                     </div>
@@ -60,7 +60,7 @@
                                     </button>
                             </div>
                             <div wire:loading>
-                                <div class="text-right">
+                                <div class="flex justify-content-center">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
                                     </div>
@@ -110,20 +110,23 @@
                                    class="form-control" id="principal" aria-describedby="principal" placeholder="Сумма кредитования/рассрочки">
                             @error('principal') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="text-right" wire:loading.remove>
+                        <div >
                             @if($showFinalButton)
-                                <button
-                                    id="sendToScrollButton"
-                                    wire:click="sendToScrollData()"
-                                    type="submit"
-                                    class="btn btn-success">Отправить</button>
+                                <div class="text-right" wire:loading.remove>
+                                    <button
+                                        id="sendToScrollButton"
+                                        wire:click="sendToScrollData()"
+                                        type="submit"
+                                        class="btn btn-success">Отправить</button>
+                                </div>
                                 <div wire:loading>
-                                    <div class="text-right">
+                                    <div class=" flex justify-content-center">
                                         <div class="spinner-border" role="status">
                                             <span class="sr-only">Ожидайте...</span>
                                         </div>
                                     </div>
                                 </div>
+
                             @endif
 
                             @if($uuid)

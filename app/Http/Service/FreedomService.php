@@ -230,6 +230,7 @@ class FreedomService
         else{
             if($request->status() == 204){
                 toastr()->addError("Заявка не оформлена, попробуйте еще раз");
+                FreedomService::getBaseScrollInfoByUUID($uuid);
             }
             else{
                 toastr()->addError("Что-то пошло не так");
@@ -241,6 +242,7 @@ class FreedomService
         $request = Http::withHeaders(["Authorization"=>"JWT " . self::getAccessToken(false)])->get(env(self::FREEDOM_BACK_API).self::GET_SCROLL_BASE_RESULT_BY_UUID .$uuid);
         if($request->status() == 200){
             $raw = json_decode($request->body(),true);
+            dd($raw);
             return $raw;
         }
         else{

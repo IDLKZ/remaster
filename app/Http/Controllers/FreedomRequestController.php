@@ -30,7 +30,7 @@ class FreedomRequestController extends AppBaseController
     public function index(Request $request)
     {
 
-        $freedomRequests = $this->freedomRequestRepository->orderBy("created_at","DESC")->paginate(30);
+        $freedomRequests = $this->freedomRequestRepository->paginate(30);
 
         return view('freedom_requests.index')
             ->with('freedomRequests', $freedomRequests);

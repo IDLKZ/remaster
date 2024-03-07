@@ -26,6 +26,7 @@
             <td>{{ $freedomRequest->principal }}</td>
             <td>{{ $freedomRequest->uuid }}</td>
             <td>{{ $freedomRequest->is_success ? "Одобрено" : "Отказано" }}</td>
+            <td>{{ $freedomRequest->created_at->format("H:i d/m/Y") }}</td>
                 <td>
                     {!! Form::open(['route' => ['freedomRequests.destroy', $freedomRequest->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -39,5 +39,7 @@
         @endforeach
         </tbody>
     </table>
-    {{$freedomRequests->links()}}
+    <div class="flex justify-content-center align-items-center w-100">
+        {{$freedomRequests->links()}}
+    </div>
 </div>

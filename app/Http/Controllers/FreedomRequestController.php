@@ -29,7 +29,7 @@ class FreedomRequestController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $freedomRequests = $this->freedomRequestRepository->all();
+        $freedomRequests = $this->freedomRequestRepository->latest()->paginate(30);
 
         return view('freedom_requests.index')
             ->with('freedomRequests', $freedomRequests);

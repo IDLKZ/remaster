@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Contact;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
         view()->composer('layout', function($view){
             $view->with('contact', Contact::latest()->first());
         });

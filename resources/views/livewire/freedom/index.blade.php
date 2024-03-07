@@ -32,18 +32,15 @@
                             </div>
                         @endif
                         @if($stepId == 1)
-                            <div class="text-right">
-                                    <button wire:loading.attr="disabled"
-                                            wire:target="loading"
-                                            wire:loading.attr="disabled"
+                            <div class="text-right" wire:loading.remove>
+                                    <button
                                             wire:click="sendOTP()"
-                                            wire:loading.remove
                                             @unless(!$loading) disabled @endunless
                                             class="btn btn-success">
                                         Отправить
                                     </button>
                             </div>
-                            <div wire:loading wire:target="sendOTP()">
+                            <div wire:loading>
                                 <div class="text-right">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
@@ -53,7 +50,7 @@
 
                         @endif
                         @if($stepId == 2)
-                            <div class="text-right">
+                            <div class="text-right" wire:loading.remove>
                                     <button wire:loading.attr="disabled"
                                             wire:target="loading"
                                             wire:click="validateOTP()"
@@ -62,7 +59,7 @@
                                         Отправить
                                     </button>
                             </div>
-                            <div wire:loading wire:target="validateOTP()">
+                            <div wire:loading>
                                 <div class="text-right">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
@@ -113,18 +110,14 @@
                                    class="form-control" id="principal" aria-describedby="principal" placeholder="Сумма кредитования/рассрочки">
                             @error('principal') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="text-right">
+                        <div class="text-right" wire:loading.remove>
                             @if($showFinalButton)
                                 <button
-                                    x-bind:disabled="loading"
                                     id="sendToScrollButton"
-                                    wire:loading.attr="disabled"
-                                    wire:target="loading"
                                     wire:click="sendToScrollData()"
                                     type="submit"
-                                    wire:loading.remove
                                     class="btn btn-success">Отправить</button>
-                                <div wire:loading wire:target="sendToScrollData()">
+                                <div wire:loading>
                                     <div class="text-right">
                                         <div class="spinner-border" role="status">
                                             <span class="sr-only">Ожидайте...</span>

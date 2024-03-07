@@ -39,4 +39,5 @@
         @endforeach
         </tbody>
     </table>
+    {{$freedomRequests->links()}}
 </div>

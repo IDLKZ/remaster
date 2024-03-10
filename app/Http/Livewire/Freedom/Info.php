@@ -24,7 +24,8 @@ class Info extends Component
         $this->freedom_request = FreedomRequest::where(["uuid"=>$uuid])->first();
         if($this->freedom_request && $this->freedom_request->result == null){
             $data = FreedomService::getScrollInfoByUUID($uuid);
-            $this->freedom_request = FreedomService::handleRawData($data,$this->freedom_request);
+            FreedomService::handleRawData($data,$this->freedom_request);
+            $this->freedom_request = FreedomRequest::where(["uuid"=>$uuid])->first();
         }
         $this->sendedBefore = SmsVerification::where(["uuid"=>$uuid])->first();
         if($this->sendedBefore){

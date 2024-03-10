@@ -343,7 +343,6 @@ class FreedomService
             $freedom_request->with_card = $data["with_card"];
         }
         $freedom_request->update();
-        dd($freedom_request);
         return $freedom_request;
     }
 

@@ -43,12 +43,12 @@
 <li class="nav-item {{ Request::is('freedomTokens*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('freedomTokens.index') }}">
         <i class="nav-icon icon-cursor"></i>
-        <span>Freedom Tokens</span>
+        <span>Freedom Токены AUTH</span>
     </a>
 </li>
 <li class="nav-item {{ Request::is('freedomResponses*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('freedomResponses.index') }}">
         <i class="nav-icon icon-cursor"></i>
-        <span>Freedom Responses</span>
+        <span>Freedom Запросы</span>
     </a>
 </li>

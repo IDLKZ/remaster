@@ -16,6 +16,10 @@ class FreedomController extends Controller
         if($uuid){
             $freedom_request = FreedomRequest::where(["uuid" => $uuid])->first();
             if($freedom_request){
+                if($this->freedom_request && $this->freedom_request->result == null){
+                    $data = FreedomService::getScrollInfoByUUID($uuid);
+                    FreedomService::handleRawData($data,$this->freedom_request);
+                }
                 return view("freedom.info",compact("uuid"));
             }
 

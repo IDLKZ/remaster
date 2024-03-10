@@ -173,8 +173,8 @@ class FreedomService
                 "period"=>$period,
                 "principal"=>$principal,
             ],
-            "hook_url"=>$hook_url,
             "additional_information"=>[
+                "hook_url"=>$hook_url,
                 "success_url"=>$success_url,
                 "failure_url"=>$failure_url,
                 "reference_id"=>\Illuminate\Support\Str::uuid(),

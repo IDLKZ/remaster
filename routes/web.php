@@ -28,9 +28,9 @@ Route::group(['middleware' => 'auth'], function (){
 Route::post('/send', [\App\Http\Controllers\FrontController::class, 'sendEmail']);
 Route::get('freedom-payment', [App\Http\Controllers\FreedomController::class,"index"])->name("freedom-payment");
 Route::get('freedom-payment-info/{uuid}', [App\Http\Controllers\FreedomController::class,"info"])->name("freedom-info");
-Route::get('freedom-info', [App\Http\Controllers\FreedomController::class,"freedomInfo"])->name("freedom-info-hook");
-Route::get('freedom-success', [App\Http\Controllers\FreedomController::class,"success"])->name("freedom-success");
-Route::get('freedom-failure', [App\Http\Controllers\FreedomController::class,"failure"])->name("freedom-failure");
+Route::post('freedom-info', [App\Http\Controllers\FreedomController::class,"freedomInfo"])->name("freedom-info-hook");
+Route::post('freedom-success', [App\Http\Controllers\FreedomController::class,"success"])->name("freedom-success");
+Route::post('freedom-failure', [App\Http\Controllers\FreedomController::class,"failure"])->name("freedom-failure");
 
 Route::get("clean-all",function (){
     \Illuminate\Support\Facades\Artisan::call("config:cache");

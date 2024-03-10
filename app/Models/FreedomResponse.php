@@ -41,7 +41,7 @@ class FreedomResponse extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'data' => 'string',
+        'data' => 'array',
         'success' => 'boolean'
     ];
 
@@ -51,7 +51,7 @@ class FreedomResponse extends Model
      * @var array
      */
     public static $rules = [
-        'data' => 'required|string',
+        'data' => 'required',
         'success' => 'nullable|boolean',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

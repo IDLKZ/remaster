@@ -45,7 +45,26 @@ class FreedomRequest extends Model
         'period',
         'principal',
         'uuid',
-        'is_success'
+        'is_success',
+        "result",
+        "alternative_reason",
+        "alternative_sum",
+        "redirect_url",
+        "interest_rate",
+        "effective_rate",
+        "monthly_payment",
+        "is_phone_verified",
+        "status",
+        "credit_contract",
+        "issue_iin",
+        "issue_mobile_phone",
+        "first_name",
+        "last_name",
+        "middle_name",
+        "reference_id",
+        "with_card",
+        "status_code",
+
     ];
 
     /**
@@ -63,7 +82,25 @@ class FreedomRequest extends Model
         'period' => 'string',
         'principal' => 'string',
         'uuid' => 'string',
-        'is_success' => 'boolean'
+        'is_success' => 'boolean',
+        "result"=>"string",
+        "alternative_reason"=>"string",
+        "alternative_sum"=>"string",
+        "redirect_url"=>"string",
+        "interest_rate"=>"string",
+        "effective_rate"=>"string",
+        "monthly_payment"=>"string",
+        "is_phone_verified"=>"boolean",
+        "status"=>"string",
+        "credit_contract"=>"string",
+        "issue_iin"=>"string",
+        "issue_mobile_phone"=>"string",
+        "first_name"=>"string",
+        "last_name"=>"string",
+        "middle_name"=>"string",
+        "reference_id"=>"string",
+        "with_card"=>"boolean",
+        "status_code"=>"integer",
     ];
 
     /**

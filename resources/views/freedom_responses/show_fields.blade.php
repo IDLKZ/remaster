@@ -1,7 +1,7 @@
 <!-- Data Field -->
 <div class="form-group">
     {!! Form::label('data', 'Data:') !!}
-    <p>{{ $freedomResponse->data }}</p>
+    <pre>{{ $freedomResponse->data }}</pre>
 </div>
 
 <!-- Success Field -->

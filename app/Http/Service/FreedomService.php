@@ -197,7 +197,8 @@ class FreedomService
                 "principal"=>$data["credit_params"]["principal"],
                 "uuid"=>$raw["uuid"],
                 'reference_id'=>Carbon::now()->millisecond . "" . auth()->id(),
-                "is_success"=>true
+                "is_success"=>true,
+                "status_code"=>$request->status(),
             ]);
                 toastr()->addSuccess("Успешно оформлена заявка!");
                 Mail::to($data["email"])->send(new FreedomMail($freedomRequest));
@@ -213,7 +214,8 @@ class FreedomService
                 "period"=>$data["credit_params"]["period"],
                 "principal"=>$data["credit_params"]["principal"],
                 "uuid"=>null,
-                "is_success"=>false
+                "is_success"=>false,
+                "status_code"=>$request->status(),
             ]);
             toastr()->addError("Упс что-то пошло не так!");
             return null;
@@ -266,6 +268,82 @@ class FreedomService
             toastr()->addError("Что-то пошло не так при отправке смс на номер телефона:");
             toastr()->addError($raw["detail"]);
         }
+    }
+
+
+    public static function handleRawData($data,$freedom_request)
+    {
+        //APPROVED OR REJECTED
+        if(isset($data["result"])){
+            $freedom_request->result = $data["result"];
+        }
+        if(isset($data["alternative_reason"])){
+            $freedom_request->alternative_reason = $data["alternative_reason"];
+        }
+        if(isset($data["alternative_sum"])){
+            $freedom_request->alternative_sum = $data["alternative_sum"];
+        }
+        if(isset($data["approved_params"])){
+            if($data["approved_params"]){
+                $freedom_request->period = $data["approved_params"]["period"];
+                $freedom_request->principal = $data["approved_params"]["principal"];
+                $freedom_request->interest_rate = $data["approved_params"]["interest_rate"];
+                $freedom_request->effective_rate = $data["approved_params"]["effective_rate"];
+                $freedom_request->monthly_payment = $data["approved_params"]["monthly_payment"];
+            }
+        }
+        if(isset($data["redirect_url"])){
+            $freedom_request->redirect_url = $data["redirect_url"];
+        }
+        if(isset($data["product"])){
+            $freedom_request->product = $data["product"];
+        }
+        if(isset($data["is_phone_verified"])){
+            $freedom_request->is_phone_verified = $data["is_phone_verified"];
+        }
+        //ISSUED
+        if(isset($data["credit_contract"])){
+            $freedom_request->credit_contract = $data["credit_contract"];
+        }
+        if(isset($data["iin"])){
+            $freedom_request->iin = $data["iin"];
+        }
+        if(isset($data["mobile_phone"])){
+            $freedom_request->mobile_phone = $data["mobile_phone"];
+        }
+        if(isset($data["first_name"])){
+            $freedom_request->first_name = $data["first_name"];
+        }
+        if(isset($data["last_name"])){
+            $freedom_request->last_name = $data["last_name"];
+        }
+        if(isset($data["middle_name"])){
+            $freedom_request->middle_name = $data["middle_name"];
+        }
+        if(isset($data["approved_params"])){
+            if($data["approved_params"]){
+                $freedom_request->period = $data["approved_params"]["period"];
+                $freedom_request->principal = $data["approved_params"]["principal"];
+                $freedom_request->interest_rate = $data["approved_params"]["interest_rate"];
+                $freedom_request->effective_rate = $data["approved_params"]["effective_rate"];
+                $freedom_request->monthly_payment = $data["approved_params"]["monthly_payment"];
+            }
+        }
+        if(isset($data["reference_id"])){
+            $freedom_request->reference_id = $data["reference_id"];
+        }
+        if(isset($data["status"])){
+            $freedom_request->status = $data["status"];
+            $freedom_request->result = $data["status"];
+        }
+        if(isset($data["is_phone_verified"])){
+            $freedom_request->is_phone_verified = $data["is_phone_verified"];
+        }
+        if(isset($data["with_card"])){
+            $freedom_request->with_card = $data["with_card"];
+        }
+        $freedom_request->update();
+        return $freedom_request;
     }
 
 

@@ -5,28 +5,28 @@
                 <h2 class="text-white d-none d-lg-inline">Freedom Finance Credit - получение онлайн кредита/рассрочку</h2>
                 <h4 class="text-white d-inline d-lg-none">Freedom Finance Credit - получение онлайн кредита/рассрочку</h4>
             </div>
-            @if($data)
+            @if($freedom_request)
                 <div class="col-12 py-3 px-2">
                     <ul class="list-group my-3">
                         <li class="list-group-item d-flex align-items-center">
                             Статус:
-                            @if($data["result"] == "REJECTED")
+                            @if($freedom_request->result == "REJECTED")
                                 <span class="badge badge-danger badge-pill ml-2">
                                     Отказано
                                 </span>
                             @endif
-                            @if($data["result"] == "APPROVED")
+                            @if($freedom_request->result == "APPROVED")
                                 <span class="badge badge-info badge-pill ml-2">
-                                     Принято в обработку ( подтвердите биометрию отправленную в виде смс )
+                                     Принято в обработку ( подтвердите биометрию отправленную в виде смс на ваш номер телефона )
                                 </span>
                             @endif
-                            @if($data["result"] == "ISSUED")
+                            @if($freedom_request->result == "ISSUED")
                                 <span class="badge badge-success badge-pill ml-2">
-                                    Заявка завершена
+                                    Выдана ( заявка завершена )
                                 </span>
                             @endif
                         </li>
-                        @if($data["result"] == "APPROVED")
+                        @if($freedom_request->result == "APPROVED")
                             @if($showSendButton && $this->send)
                                 <br/>
                                 <div class="my-3">
@@ -41,57 +41,71 @@
 
                             @endif
                         @endif
-                        @if($data["alternative_reason"])
+                        @if($freedom_request->alternative_reason)
                             <li class="list-group-item d-flex align-items-center">
                                 Причина:
                                 <span class="badge badge-danger badge-pill ml-2">
-                                    {{$data["alternative_reason"]}}
+                                    {{$freedom_request->alternative_reason}}
                             </span>
                             </li>
                         @endif
-                        @if($data["alternative_sum"])
+                        @if($freedom_request->alternative_sum)
                             <li class="list-group-item d-flex align-items-center">
                                 Альтернативная сумма:
-                                <span class="badge badge-danger badge-pill ml-2">
-                                    {{$data["alternative_sum"]}}
+                                <span class="badge badge-warning badge-pill ml-2">
+                                    {{$freedom_request->alternative_sum}}
                             </span>
                             </li>
                         @endif
-                        @if($data["approved_params"])
+                        @if($freedom_request->period)
                             <li class="list-group-item d-flex align-items-center">
                                 Месяцы:
                                 <span class="badge badge-info badge-pill ml-2">
-                                    {{$data["approved_params"]["period"]}}
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex align-items-center">
-                                Сумма:
-                                <span class="badge badge-info badge-pill ml-2">
-                                    {{$data["approved_params"]["principal"]}} KZT
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex align-items-center">
-                                Предоплата:
-                                <span class="badge badge-info badge-pill ml-2">
-                                    {{$data["approved_params"]["prepayment_amount"]}} KZT
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex align-items-center">
-                                Месячная оплата:
-                                <span class="badge badge-info badge-pill ml-2">
-                                    {{$data["approved_params"]["monthly_payment"]}} KZT
+                                    {{$freedom_request->period}}
                                 </span>
                             </li>
                         @endif
-                        @if($data["product"])
+                        @if($freedom_request->principal)
+                            <li class="list-group-item d-flex align-items-center">
+                                Сумма:
+                                <span class="badge badge-info badge-pill ml-2">
+                                    {{$freedom_request->principal}} KZT
+                                </span>
+                            </li>
+                        @endif
+                        @if($freedom_request->interest_rate)
+                            <li class="list-group-item d-flex align-items-center">
+                                Процентная ставка:
+                                <span class="badge badge-info badge-pill ml-2">
+                                    {{$freedom_request->interest_rate}}
+                                </span>
+                            </li>
+                        @endif
+                        @if($freedom_request->effective_rate)
+                            <li class="list-group-item d-flex align-items-center">
+                                Эффективная процентная ставка:
+                                <span class="badge badge-info badge-pill ml-2">
+                                    {{$freedom_request->effective_rate}}
+                                </span>
+                            </li>
+                        @endif
+                        @if($freedom_request->monthly_payment)
+                            <li class="list-group-item d-flex align-items-center">
+                                Месячная выплата:
+                                <span class="badge badge-info badge-pill ml-2">
+                                    {{$freedom_request->monthly_payment}}
+                                </span>
+                            </li>
+                        @endif
+                        @if($freedom_request->product)
                             <li class="list-group-item d-flex align-items-center">
                                 Тип:
-                                @if($data["product"] == "REMASTERKZ" || $data["product"] == "REMASTERKZ_24")
+                                @if($freedom_request->product == "REMASTERKZ" || $freedom_request->product == "REMASTERKZ_24")
                                     <span class="badge badge-info badge-pill ml-2">
                                         Рассрочка
                                     </span>
                                 @endif
-                                @if($data["product"] == "REMASTERKZ_CR" || $data["product"] == "REMASTERKZ_CR48")
+                                @if($freedom_request->product == "REMASTERKZ_CR" || $freedom_request->product == "REMASTERKZ_CR48")
                                     <span class="badge badge-info badge-pill ml-2">
                                         Кредит
                                     </span>
@@ -99,54 +113,7 @@
                             </li>
                         @endif
                     </ul>
-                    @if($additional_data)
-                        <hr/>
-                        <ul class="list-group my-3">
-                            @if($additional_data["borrower_data"])
-                                @if($additional_data["borrower_data"]["iin"])
-                                    <li class="list-group-item d-flex align-items-center">
-                                        ИИН Заявителя:{{$additional_data["borrower_data"]["iin"]}}
-                                    </li>
-                                @endif
-                                @if($additional_data["borrower_data"]["email"])
-                                    <li class="list-group-item d-flex align-items-center">
-                                        ИИН Заявителя:{{$additional_data["borrower_data"]["email"]}}
-                                    </li>
-                                @endif
-                                @if($additional_data["borrower_data"]["full_name"])
-                                    <li class="list-group-item d-flex align-items-center">
-                                        ФИО Заявителя:{{$additional_data["borrower_data"]["full_name"]}}
-                                    </li>
-                                @endif
-                                    @if($additional_data["borrower_data"]["mobile_phone"])
-                                        <li class="list-group-item d-flex align-items-center">
-                                            Номер Заявителя:{{$additional_data["borrower_data"]["mobile_phone"]}}
-                                        </li>
-                                    @endif
-                                    @if($additional_data["borrower_data"]["borrower_type"])
-                                        <li class="list-group-item d-flex align-items-center">
-                                            Тип Заявителя:{{$additional_data["borrower_data"]["borrower_type"]}}
-                                        </li>
-                                    @endif
-                                    @if($additional_data["borrower_data"]["document_number"])
-                                        <li class="list-group-item d-flex align-items-center">
-                                            Номер Документа:{{$additional_data["borrower_data"]["document_number"]}}
-                                        </li>
-                                    @endif
-                                    @if($additional_data["borrower_data"]["document_issue_date"])
-                                        <li class="list-group-item d-flex align-items-center">
-                                            Дата Документа:{{$additional_data["borrower_data"]["document_issue_date"]}}
-                                        </li>
-                                    @endif
-                            @endif
-                                @if($additional_data["signed_at"])
-                                    <li class="list-group-item d-flex align-items-center">
-                                        Дата Подписания:{{$additional_data["signed_at"]}}
-                                    </li>
-                                @endif
-                        </ul>
-                        <hr/>
-                    @endif
+
 
                 </div>
             @endif

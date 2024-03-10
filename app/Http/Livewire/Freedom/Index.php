@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Freedom;
 
 use App\Http\Service\FreedomService;
+use App\Models\FreedomResponse;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -124,12 +125,12 @@ class Index extends Component
         $this->showFinalButton = false;
         $this->loading = true;
        $data = FreedomService::getInfoToScroll($this->iin,$this->mobile_phone,$this->code,$this->email,$this->type_id,$this->principal);
+       FreedomResponse::create(["data"=>$data]);
        $result = FreedomService::sendToScroll($data);
        $this->showFinalButton = $result != null ? false : true;
        $this->loading = false;
        $this->uuid = $result;
        if($result){
-
            return redirect()->route("freedom-info",["uuid"=>$this->uuid]);
        }
     }

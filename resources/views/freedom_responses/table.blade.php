@@ -2,16 +2,18 @@
     <table class="table table-striped" id="freedomResponses-table">
         <thead>
             <tr>
-                <th>Data</th>
-        <th>Success</th>
-                <th colspan="3">Action</th>
+                <th>Данные</th>
+                <th colspan="3">Действия</th>
             </tr>
         </thead>
         <tbody>
         @foreach($freedomResponses as $freedomResponse)
             <tr>
-                <td>{{ $freedomResponse->data }}</td>
-            <td>{{ $freedomResponse->success }}</td>
+            <td>
+                <pre>
+                    {{ $freedomResponse->data }}
+                </pre>
+            </td>
                 <td>
                     {!! Form::open(['route' => ['freedomResponses.destroy', $freedomResponse->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

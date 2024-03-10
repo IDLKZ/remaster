@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Freedom;
 
 use App\Http\Service\FreedomService;
+use App\Models\FreedomRequest;
 use App\Models\SmsVerification;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -11,6 +12,7 @@ class Info extends Component
 {
     public $uuid;
     public $data;
+    public $freedom_request;
     public $additional_data;
     public $showSendButton = true;
     public $sendedBefore;
@@ -19,7 +21,11 @@ class Info extends Component
     public function mount(string $uuid)
     {
         $this->uuid = $uuid;
-        $this->data = FreedomService::getScrollInfoByUUID($uuid);
+        $this->freedom_request = FreedomRequest::where(["uuid"=>$uuid])->first();
+        if($this->freedom_request && $this->freedom_request->result == null){
+            $data = FreedomService::getScrollInfoByUUID($uuid);
+            $this->freedom_request = FreedomService::handleRawData($data,$this->freedom_request);
+        }
         $this->sendedBefore = SmsVerification::where(["uuid"=>$uuid])->first();
         if($this->sendedBefore){
             if($this->sendedBefore->expired_at > Carbon::now()){
@@ -29,15 +35,6 @@ class Info extends Component
         if($this->sendedBefore == null){
             $this->sendSMSCode();
         }
-        if($this->data != null){
-            if(isset($this->data["result"])){
-                if ($this->data["result"] == "ISSUED"){
-                    $this->additional_data = FreedomService::getBaseScrollInfoByUUID($uuid);
-                }
-            }
-
-        }
-
     }
 
     public function render()
@@ -47,7 +44,7 @@ class Info extends Component
 
     public function sendSMSCode()
     {
-        if($this->uuid && $this->send){
+        if($this->uuid && $this->send && $this->freedom_request->result == "APPROVED"){
             $this->showSendButton = false;
             FreedomService::sendCodeToBioVerification($this->uuid);
         }

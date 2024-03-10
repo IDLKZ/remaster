@@ -10,7 +10,10 @@
         <th>Период</th>
         <th>Сумма</th>
         <th>Уникальный ID</th>
+        <th>Отправлено</th>
         <th>Результат</th>
+        <th>Статус</th>
+        <th>Статус Код</th>
         <th>Дата</th>
                 <th colspan="3">Действия</th>
             </tr>
@@ -26,7 +29,10 @@
             <td>{{ $freedomRequest->period }}</td>
             <td>{{ $freedomRequest->principal }}</td>
             <td>{{ $freedomRequest->uuid }}</td>
-            <td>{{ $freedomRequest->is_success ? "Одобрено" : "Отказано" }}</td>
+            <td>{{ $freedomRequest->is_success ? "Отправлено" : "Не отправлено" }}</td>
+            <td>{{ $freedomRequest->result}}</td>
+            <td>{{ $freedomRequest->status}}</td>
+            <td>{{ $freedomRequest->status_code}}</td>
             <td>{{ $freedomRequest->created_at->format("H:i d/m/Y") }}</td>
                 <td>
                     {!! Form::open(['route' => ['freedomRequests.destroy', $freedomRequest->id], 'method' => 'delete']) !!}

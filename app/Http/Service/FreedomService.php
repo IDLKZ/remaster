@@ -342,9 +342,8 @@ class FreedomService
         if(isset($data["with_card"])){
             $freedom_request->with_card = $data["with_card"];
         }
-        dump($data);
-        dd($freedom_request);
         $freedom_request->update();
+        dd($freedom_request);
         return $freedom_request;
     }
 

@@ -11,7 +11,7 @@
             <tr>
             <td>
                 <pre>
-                    {{ $freedomResponse->data }}
+                    {{ json_encode($freedomResponse->data)}}
                 </pre>
             </td>
                 <td>

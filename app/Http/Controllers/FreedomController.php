@@ -80,10 +80,9 @@ class FreedomController extends Controller
                         toastr()->error("Заявка отклонена");
                     }
                 }
-                return redirect()->route("freedom-info",$request->get("uuid"));
             }
         }
-        return abort(404);
+        return view("freedom.success");
     }
     public function failure(Request $request){
         if($request->get("uuid")){
@@ -108,9 +107,8 @@ class FreedomController extends Controller
                         toastr()->error("Заявка отклонена");
                     }
                 }
-                return redirect()->route("freedom-info",$request->get("uuid"));
             }
         }
-        return abort(404);
+        return view("freedom.failure");
     }
 }

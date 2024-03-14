@@ -32,7 +32,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12 py-2 flex justify-content-center align-items-center">
+                    <div class="col-12 py-2 d-flex justify-content-center align-items-center">
                         @if($stepId == 1)
                             <div class="text-right" wire:loading.remove>
                                 <button
@@ -51,7 +51,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12 py-2 flex justify-content-center align-items-center">
+                    <div class="col-12 py-2 d-flex justify-content-center align-items-center">
                         @if($stepId == 2)
                             <div class="text-right" wire:loading.remove>
                                 <button wire:loading.attr="disabled"
@@ -114,7 +114,7 @@
                             @error('principal') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="col-12 py-2 flex justify-content-center align-items-center">
+                    <div class="col-12 py-2 d-flex justify-content-center align-items-center">
                             @if($showFinalButton)
                                 <div class="text-right" wire:loading.remove>
                                     <button

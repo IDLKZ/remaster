@@ -32,7 +32,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12 py-4">
+                    <div class="col-12 py-2">
                         @if($stepId == 1)
                             <div class="text-right" wire:loading.remove>
                                 <button
@@ -51,7 +51,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12 py-4">
+                    <div class="col-12 py-2">
                         @if($stepId == 2)
                             <div class="text-right" wire:loading.remove>
                                 <button wire:loading.attr="disabled"

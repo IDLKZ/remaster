@@ -231,7 +231,6 @@ class FreedomService
         }
         else{
             if($request->status() == 204){
-                dd($request->body());
                 toastr()->addError("Заявка не оформлена, попробуйте еще раз");
             }
             else{

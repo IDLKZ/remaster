@@ -32,7 +32,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 py-4">
                         @if($stepId == 1)
                             <div class="text-right" wire:loading.remove>
                                 <button
@@ -43,7 +43,7 @@
                                 </button>
                             </div>
                             <div wire:loading.block>
-                                <div class="flex justify-content-center">
+                                <div class="flex justify-content-center align-items-center w-100">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
                                     </div>
@@ -51,7 +51,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 py-4">
                         @if($stepId == 2)
                             <div class="text-right" wire:loading.remove>
                                 <button wire:loading.attr="disabled"
@@ -63,7 +63,7 @@
                                 </button>
                             </div>
                             <div wire:loading.block>
-                                <div class="flex justify-content-center">
+                                <div class="flex justify-content-center align-items-center w-100">
                                     <div class="spinner-border" role="status">
                                         <span class="sr-only">Ожидайте...</span>
                                     </div>
@@ -114,7 +114,7 @@
                             @error('principal') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="col-12 my-3">
+                    <div class="col-12 my-3 py-3">
                             @if($showFinalButton)
                                 <div class="text-right" wire:loading.remove>
                                     <button
@@ -124,7 +124,7 @@
                                         class="btn btn-success">Отправить</button>
                                 </div>
                                 <div wire:loading.block>
-                                    <div class=" flex justify-content-center">
+                                    <div class="flex justify-content-center align-items-center w-100">
                                         <div class="spinner-border" role="status">
                                             <span class="sr-only">Ожидайте...</span>
                                         </div>

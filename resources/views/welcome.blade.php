@@ -33,7 +33,7 @@
                 <div class="container mx-auto my-4">
                     <div class="row py-3">
                         @foreach($advantages as $advantage)
-                            <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                            <div class="col-12 col-md-4 col-lg-3 col-xl-2">
                                 <div class="card p-4 shadow-lg h-100 d-flex">
                                     <div class="card-container d-flex justify-content-center align-items-center align-content-center">
                                         <div
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="text-center px-3 py-3">
                                         <h6>{{$advantage->title}}</h6>
-                                        <small class="mt-4">{{$advantage->title}}</small>
+                                        <small class="mt-4">{{$advantage->sub_title}}</small>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,6 @@
                 <h2>504 квартиры уже сделаны, <br>
                     86 ремонтируются прямо сейчас</h2>
             </div>
-            <p class="mt-3 under-p">Посмотрите, как выглядят готовые ремонты</p>
         </div>
 
         <div class="gray-lg-block">

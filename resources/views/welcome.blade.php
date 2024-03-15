@@ -33,7 +33,7 @@
                 <div class="container mx-auto my-4">
                     <div class="row py-3">
                         @foreach($advantages as $advantage)
-                            <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+                            <div class="col-12 col-md-4 col-lg-3 col-xl-3">
                                 <div class="card p-4 shadow-lg h-100 d-flex">
                                     <div class="card-container d-flex justify-content-center align-items-center align-content-center">
                                         <div
